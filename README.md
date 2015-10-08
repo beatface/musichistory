@@ -1,3 +1,3 @@
-# Emma's Msuic History Project
+# Emma's Music History Project
 
 My first NSS front end project.

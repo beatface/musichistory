@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Emma's Music History</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico|Ubuntu:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header id="header">
+      <h1><a href="http://www.emmabeaton.com">Emma Beaton</a></h1>
+      <nav class="navigation"
+        <ul id="nav">
+          <li><a href="#">View Music</a></li>
+          <li><a href="#">Add Music</a></li>
+          <li><a href="#">Profile</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="sidebar">
+      <form action="form.html" method="POST">
+        <label for="length">Song length:</label>
+        <input type="range" name="length" min="1" max="6" step=".5">
+        <label for="artist-select">Artist:</label>
+        <select id="artist-select" name="artist-select">
+          <option>Robyn</option>
+          <option>Beyonce</option>
+          <option>Jason Isbell</option>
+          <option>Hozier</option>
+        </select>
+        <label for="album-select">Album:</label>
+        <select id="album-select" name="album-select">
+          <option>Robyn</option>
+          <option>Beyonce</option>
+          <option>Jason Isbell</option>
+          <option>Hozier</option>
+        </select>
+        <label for="genre-options"></label>
+        <input type="checkbox" name="genre-options" value="rock">Rock
+        <input type="checkbox" name="genre-options" value="pop">Pop
+        <input type="checkbox" name="genre-options" value="blues">Blues
+        <input type="checkbox" name="genre-options" value="jlassical">Classical
+        <input type="checkbox" name="genre-options" value="jazz">Jazz
+        <input type="checkbox" name="genre-options" value="hip-hop">Hip-hop
+        <input type="submit" class="filterButton" value="Filter">
+      </form>
+    </div>
+    <div id="song-list">
+
+    </div>
+  </body>
+</html>
