@@ -12,8 +12,11 @@ body {
 
 /***************** NAVIGATION STYLING ******************/
 
-.navigation {
+.border {
 	border: 2px solid black;
+}
+
+.navigation {
 	margin-top: 1em;
 }
 
@@ -36,7 +39,6 @@ body {
 /***************** #SIDEBAR STYLING ******************/
 
 #sidebar {
-	border: 2px solid black;
 	float: left;
 	margin: 3% 2% 0 0;
 	min-width: 35%;
@@ -54,13 +56,12 @@ body {
 	padding-top: 10px;
 }
 
-#filter-form select, #filter-form label {
+#filter-form select, #filter-form label, #container {
 	display: block;
 }
 
 #container {
-	display: block;
-	margin: 15px auto;
+	margin: 15px 0 0 0;
 	text-align: center;
 }
 
@@ -70,7 +71,6 @@ body {
 /***************** SONG LIST STYLING ******************/
 
 #song-list {
-	border: 2px solid black;
 	float: right;
 	margin: 3% 0 0 0;
 	width: 61%;
