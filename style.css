@@ -14,6 +14,7 @@ body {
 
 .navigation {
 	border: 2px solid black;
+	margin-top: 1em;
 }
 
 #nav {
@@ -42,8 +43,23 @@ body {
 	background-color: #4DD7FA;
 }
 
+#filter-form {
+	margin: 1em 1em;
+}
 
+#filter-form label, #filter-form input, #filter-form select {
+	margin: 0 0 7px 0;
+}
 
+#filter-form select, #filter-form label {
+	display: block;
+}
+
+#container {
+	display: block;
+	margin: 15px auto;
+	text-align: center;
+}
 
 
 
