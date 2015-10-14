@@ -8,6 +8,7 @@ body {
 	padding: 0;
 	max-width: 85%;
 	font-family: Ariel, sans-serif;
+	position: relative;
 }
 
 #flex-container {
@@ -28,7 +29,8 @@ body {
 }
 
 .navigation {
-	margin-top: 1em;
+/*	margin-top: 1em;*/
+	margin-right: 15%;
 }
 
 #nav {
@@ -37,7 +39,7 @@ body {
   	padding: 20px 9px;
   	margin: auto 0;
   	background-color: #FFB4B0;
-}
+  }
 
 #nav li {
 	padding: 0 .2em;
@@ -57,7 +59,7 @@ body {
 }
 
 #sidebar, #song-list {
-	margin-top: 6em;
+	margin-top: 5em;
 }
 
 #filter-form {
@@ -94,8 +96,10 @@ body {
 	margin: auto 0;
 }
 
-#song-list h3 {
+#song-list h2 {
 	color: #785616;
+	margin: 0;
+	padding: .4em 0 0 1em;
 }
 
 #song-list container p {
@@ -103,11 +107,11 @@ body {
 	margin: 0;
 }
 
-container p:nth-child(2n+0) {
+container div:nth-child(2n+0) {
 	background: #FFF5EE;
 }
 
-container p:nth-child(2n+1) {
+container div:nth-child(2n+1) {
 	background: #F5FFFA;
 }
 
