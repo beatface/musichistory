@@ -1,4 +1,4 @@
-html {
+html, #flex-container {
 	margin: 0;
 	padding: 0;
 }
@@ -19,13 +19,8 @@ body {
 /***************** NAVIGATION STYLING ******************/
 
 #header {
-	flex: 1 100%;
+	width: 100%;
 	position: fixed;
-}
-
-#header-hidden {
-	visibility: none;
-	flex: 1 100%;
 }
 
 .border {
@@ -58,7 +53,11 @@ body {
 	flex-grow: 1;
 	background-color: #4DD7FA;
 	box-sizing: border-box;
-	width: 250px
+	width: 220px;
+}
+
+#sidebar, #song-list {
+	margin-top: 6em;
 }
 
 #filter-form {
@@ -86,10 +85,9 @@ body {
 
 #song-list {
 	flex-grow: 10;
-	background-color: #FEFAC0;
-	padding: .45em 1.2em 3.2em;
 	box-sizing: border-box;
-	width: 350px;
+	width: 300px;
+	margin-left: 1em;
 }
 
 #song-list container {
@@ -100,7 +98,18 @@ body {
 	color: #785616;
 }
 
+#song-list container p {
+	padding: 1em;
+	margin: 0;
+}
 
+container p:nth-child(2n+0) {
+	background: #FFF5EE;
+}
+
+container p:nth-child(2n+1) {
+	background: #F5FFFA;
+}
 
 
 

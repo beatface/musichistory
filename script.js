@@ -20,11 +20,9 @@ for (var i = 0; i < songs.length; i++) {
 	songs[i] = songs[i].replace("(", "");
 	songs[i] = songs[i].replace("!", "");
 	songs[i] = songs[i].replace("on the album", "-");
-	targetHTML.innerHTML += "<p>";
-	targetHTML.innerHTML += songs[i];
-	targetHTML.innerHTML += "</p>";
+	targetHTML.innerHTML += "<p>" + songs[i] + "</p>";
 }
-console.log(songs);
+console.log(targetHTML);
 
 //Loop over the array
 //remove words and characters that don't belong
