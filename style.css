@@ -2,6 +2,7 @@
 html {
 	margin: 0;
 	padding: 0;
+	background-color: #efebdf;
 }
 
 body {
@@ -79,7 +80,7 @@ img {
 	margin: 3% 1.7% 0 0;
 	min-width: 30%;
 	max-width: 30%;
-	background-color: #efebdf;
+	background-color: #FCFBF9;
 	box-sizing: border-box;
 	border-radius: 9px;
 }
@@ -120,7 +121,7 @@ img {
 	float: right;
 	margin: 3% 0 0 0;
 	width: 61%;
-	background-color: #FEFAC0;
+	background-color: #FCFBF9;
 	box-sizing: border-box;
 	border-radius: 9px;
 }
@@ -131,7 +132,7 @@ img {
 
 #song-list h2,
 #add-songs h2 {
-	color: #785616;
+	color: #4C4C4C;
 	margin: 0;
 	padding: .4em 0 0 1em;
 }
@@ -148,15 +149,15 @@ container div:first-child {
 
 container div:last-child {
 	border-radius: 0 0 9px 9px;
-	border-bottom: none;
+	border: none;
 }
 
 container div:nth-child(2n+0) {
-	background: #FFF5EE;
+	background: #F9F2DB;
 }
 
 container div:nth-child(2n+1) {
-	background: #F5FFFA;
+	background: #FCFBF9;
 }
 
 /************* Add music styling ************/

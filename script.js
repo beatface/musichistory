@@ -20,6 +20,9 @@ var outputAlbum = "";
 createSongList();
 
 function createSongList() {
+	outputArtist = "";
+	outputAlbum = "";
+	outputSongs = "";
 	for (var i = 0; i < songs.length; i++) {
 		var currentSong = songs[i];
 		currentSong = currentSong.replace(">", "");
@@ -48,7 +51,6 @@ function createSongList() {
 		console.log(albumName);
 
 		//send artists to artist-select box
-		outputArtist = "";
 		outputArtist += "<option>";
 		outputArtist += artistName;
 		outputArtist += "</option>";
@@ -59,12 +61,10 @@ function createSongList() {
 		outputAlbum += "</option>";
 
 		//concat all to output
-		outputSongs += "<div class='dotted-bottom quicksand-font'>";
+		outputSongs += "<div class='dotted-bottom'>";
 		outputSongs += "<h2>" + songName + "</h2>";
 		outputSongs += "<p>" + artistName + " - " + albumName + "</p>";
 		outputSongs += "</div>";
-
-
 	}
 	//insert HTML
 	artistSelect.innerHTML = outputArtist;
@@ -96,6 +96,10 @@ submitMusicButton.addEventListener("click", function(event) {
 	songs.push(stringToAdd);
 	console.log(songs);
 	createSongList();
+	//remove from input fields
+	newSong.value = "";
+	newArtist.value = "";
+	newAlbum.value = "";
 });
 
 
