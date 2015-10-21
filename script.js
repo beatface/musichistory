@@ -16,54 +16,89 @@ var outputArtist = "";
 var albumSelect = document.getElementById("album-select");
 var outputAlbum = "";
 
-for (var i = 0; i < songs.length; i++) {
-	songs[i] = songs[i].replace(">", "");
-	songs[i] = songs[i].replace("by", "-");
-	songs[i] = songs[i].replace("*", "");
-	songs[i] = songs[i].replace("@", "");
-	songs[i] = songs[i].replace("(", "");
-	songs[i] = songs[i].replace("!", "");
-	songs[i] = songs[i].replace("on the album", "-");
+//call function to load initial list on page load
+createSongList();
 
-	//Find dashes between song info
-	var dashIndex = songs[i].indexOf("-");
-	console.log(dashIndex);
+function createSongList() {
+	for (var i = 0; i < songs.length; i++) {
+		var currentSong = songs[i];
+		currentSong = currentSong.replace(">", "");
+		currentSong = currentSong.replace("by", "-");
+		currentSong = currentSong.replace("*", "");
+		currentSong = currentSong.replace("@", "");
+		currentSong = currentSong.replace("(", "");
+		currentSong = currentSong.replace("!", "");
+		currentSong = currentSong.replace("on the album", "-");
 
-	var lastDashIndex = songs[i].lastIndexOf("-");
-	console.log(lastDashIndex);
+		//Find dashes between song info
+		var dashIndex = currentSong.indexOf("-");
+		console.log(dashIndex);
 
-	//Separate songs, artists and albums from each other
-	var songName = songs[i].slice(0, dashIndex);
-	console.log(songName);
+		var lastDashIndex = currentSong.lastIndexOf("-");
+		console.log(lastDashIndex);
 
-	var artistName = songs[i].slice(dashIndex + 2, lastDashIndex);
-	console.log(artistName);
+		//Separate songs, artists and albums from each other
+		var songName = currentSong.slice(0, dashIndex);
+		console.log(songName);
 
-	var albumName = songs[i].slice(lastDashIndex + 2, songs[i].length);
-	console.log(albumName);
+		var artistName = currentSong.slice(dashIndex + 2, lastDashIndex);
+		console.log(artistName);
 
-	//send artists to artist-select box
-	outputArtist += "<option>";
-	outputArtist += artistName;
-	outputArtist += "</option>";
+		var albumName = currentSong.slice(lastDashIndex + 2, songs[i].length);
+		console.log(albumName);
 
-	//send albums to album-select box
-	outputAlbum += "<option>";
-	outputAlbum += albumName;
-	outputAlbum += "</option>";
+		//send artists to artist-select box
+		outputArtist = "";
+		outputArtist += "<option>";
+		outputArtist += artistName;
+		outputArtist += "</option>";
 
-	//concat all to output
-	outputSongs += "<div>";
-	outputSongs += "<h2>" + songName + "</h2>";
-	outputSongs += "<p>" + artistName + " - " + albumName + "</p>";
-	outputSongs += "</div>";
+		//send albums to album-select box
+		outputAlbum += "<option>";
+		outputAlbum += albumName;
+		outputAlbum += "</option>";
+
+		//concat all to output
+		outputSongs += "<div class='dotted-bottom quicksand-font'>";
+		outputSongs += "<h2>" + songName + "</h2>";
+		outputSongs += "<p>" + artistName + " - " + albumName + "</p>";
+		outputSongs += "</div>";
+
+
+	}
+	//insert HTML
+	artistSelect.innerHTML = outputArtist;
+	albumSelect.innerHTML = outputAlbum;
+	targetHTML.innerHTML = outputSongs;
+	console.log(targetHTML);
 }
 
-//insert HTML
-artistSelect.innerHTML = outputArtist;
-albumSelect.innerHTML = outputAlbum;
-targetHTML.innerHTML = outputSongs;
-console.log(targetHTML);
+
+
+//--- Collect values from input fields and push to songs array ---//
+
+var submitMusicButton = document.getElementById("add-music");
+var newSong = document.getElementById("inputSong");
+var newArtist = document.getElementById("inputArtist");
+var newAlbum = document.getElementById("inputAlbum");
+var stringToAdd = "";
+
+//on click, take values and put into string
+submitMusicButton.addEventListener("click", function(event) {
+	console.log("you clicked");
+	stringToAdd = newSong.value;
+	stringToAdd += " by ";
+	stringToAdd += newArtist.value;
+	stringToAdd += " on the album ";
+	stringToAdd += newAlbum.value;
+	console.log(stringToAdd);
+	//add to array
+	songs.push(stringToAdd);
+	console.log(songs);
+	createSongList();
+});
+
+
 
 
 
@@ -72,7 +107,7 @@ console.log(targetHTML);
 //----SHOW/HIDE DIVS on NAV BAR LINK CLICKS
 
 var viewButton = document.getElementById("view");
-var listButton = document.getElementById("list");
+var listNavButton = document.getElementById("list");
 var addNavButton = document.getElementById("add");
 var addSongDiv = document.getElementById("add-songs");
 var listSongDiv = document.getElementById("song-list");
@@ -86,14 +121,13 @@ addNavButton.addEventListener("click", function(event) {
 	listSongDiv.classList.add("hidden");
 });
 
-listButton.addEventListener("click", function(event) {
+listNavButton.addEventListener("click", function(event) {
 	listSongDiv.classList.remove("hidden");
 	addSongDiv.classList.add("hidden");
 });
 
 
 
-//--- Collect values from input fields and push to songs array ---//
 
 
 

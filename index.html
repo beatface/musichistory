@@ -5,38 +5,38 @@
     <meta charset="utf-8">
     <title>Emma's Music History</title>
     <link href='https://fonts.googleapis.com/css?family=Pacifico|Ubuntu:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700|Source+Sans+Pro' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <header id="header">
-      <nav class="navigation border-bottom">
+    <img src="beats4ulogo2.png" alt="beats4u logo">
+    <header id="header" class="bottom-border">
+      <nav class="navigation border-bottom quicksand-font">
         <ul id="nav">
-          <!-- <li id="view"><a href="#">View Music</a></li>
-          <li> | </li> -->
           <li id="list"><a href="#">List Music</a></li>
           <li> | </li>
           <li id="add"><a href="#">Add Music</a></li>
         </ul>
       </nav>
     </header>
-    <div id="container">
-      <div id="sidebar" class="border">
-        <form action="#" method="POST" id="filter-form">
+    <div id="main-container">
+      <div id="sidebar" class="border source-font">
+        <form action="#" method="#" id="filter-form">
           <label for="length">Song length:</label>
           <input type="range" name="length" min="1" max="6" step=".5">
           <label for="artist-select">Artist:</label>
           <select id="artist-select" name="artist-select">
-            <option>Robyn</option>
+            <!-- <option>Robyn</option>
             <option>Beyonce</option>
             <option>Jason Isbell</option>
-            <option>Hozier</option>
+            <option>Hozier</option> -->
           </select>
           <label for="album-select">Album:</label>
           <select id="album-select" name="album-select">
-            <option>Body Talk</option>
+            <!-- <option>Body Talk</option>
             <option>4</option>
             <option>Somthing More Than Free</option>
-            <option>Hozier</option>
+            <option>Hozier</option> -->
           </select>
           <label for="genre-options">Genre:</label>
           <p>
@@ -52,7 +52,7 @@
             <input type="checkbox" name="genre-options" value="hip-hop"> Hip-hop
           </p>
           <div id="container">
-            <input type="submit" id="filterButton" value="Filter">
+            <input type="submit" id="filterButton" value="Filter" class="quicksand-font green-button">
           </div>  
         </form>
       </div>
@@ -62,7 +62,7 @@
         </container>
       </div>
       <div id="add-songs" class="hidden">
-        <container id="song-container">
+        <container id="song-add-container">
           <h2>Add Music</h2>
           <p>
             <label for="Song">Song:</label>
@@ -76,7 +76,7 @@
             <label for="Album">Album:</label>
             <input type="text" name="Album" id="inputAlbum">
           </p>
-          <button id="add-music">Add</button>
+          <button id="add-music" class="quicksand-font green-button">Add</button>
         </container>
       </div>
     </div>
