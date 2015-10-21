@@ -11,11 +11,11 @@
     <header id="header">
       <nav class="navigation border-bottom">
         <ul id="nav">
-          <li><a href="#">View Music</a></li>
+          <!-- <li id="view"><a href="#">View Music</a></li>
+          <li> | </li> -->
+          <li id="list"><a href="#">List Music</a></li>
           <li> | </li>
-          <li><a href="#">List Music</a></li>
-          <li> | </li>
-          <li><a href="#">Add Music</a></li>
+          <li id="add"><a href="#">Add Music</a></li>
         </ul>
       </nav>
     </header>
@@ -56,16 +56,27 @@
           </div>  
         </form>
       </div>
-      <div id="song-list" class="border">
+      <div id="song-list">
         <container id="song-container">
-          <h3>Hang With Me</h3>
-          <p>Robyn  |  Body Talk  |  Pop</p>
-          <h3>Love On Top</h3>
-          <p>Beyonce  |  4  |  Pop</p>
-          <h3>If It Takes a Lifetime</h3>
-          <p>Jason Isbell  |  Something More Than Free  |  Singer/Songwriter</p>
-          <h3>Take Me To Church</h3>
-          <p>Hozier  |  Hozier  |  Alternative</p>
+          
+        </container>
+      </div>
+      <div id="add-songs" class="hidden">
+        <container id="song-container">
+          <h2>Add Music</h2>
+          <p>
+            <label for="Song">Song:</label>
+            <input type="text" name="Song" id="inputSong">
+          </p>
+          <p>
+            <label for="artist">Artist:</label>
+            <input type="text" name="artist" id="inputArtist">
+          </p>
+          <p>
+            <label for="Album">Album:</label>
+            <input type="text" name="Album" id="inputAlbum">
+          </p>
+          <button id="add-music">Add</button>
         </container>
       </div>
     </div>

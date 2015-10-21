@@ -22,7 +22,7 @@ header {
 }
 
 .border {
-	border: 2px solid black;
+	
 }
 
 nav.border-bottom {
@@ -58,6 +58,7 @@ nav.border-bottom {
 	max-width: 35%;
 	background-color: #4DD7FA;
 	box-sizing: border-box;
+	border: 2px solid black;
 }
 
 #filter-form {
@@ -75,7 +76,7 @@ nav.border-bottom {
 
 #container {
 	margin: 15px 0 0 0;
-	text-align: center;
+	text-align: left;
 }
 
 
@@ -83,34 +84,33 @@ nav.border-bottom {
 
 /***************** SONG LIST STYLING ******************/
 
-#song-list {
+#song-list, 
+#add-songs {
 	float: right;
 	margin: 3% 0 0 0;
 	width: 61%;
 	background-color: #FEFAC0;
 	/*padding: .45em 1.2em 3.2em;*/
 	box-sizing: border-box;
+	border: 2px solid black;
 }
 
-#song-list container {
+#song-container {
 	margin: auto 0;
 }
 
-#song-list h2 {
+#song-list h2,
+#add-songs h2 {
 	color: #785616;
 	margin: 0;
 	padding: .4em 0 0 1em;
 }
 
-#song-list container p {
+#song-list container p,
+#add-songs container p {
 	padding: 1em 1em 1em 1.5em;
 	margin: 0;
 }
-
-
-
-
-
 
 container div:nth-child(2n+0) {
 	background: #FFF5EE;
@@ -121,7 +121,11 @@ container div:nth-child(2n+1) {
 }
 
 
+/************* DYNAMIC STYLES *************/
 
+.hidden {
+	display: none;
+}
 
 
 

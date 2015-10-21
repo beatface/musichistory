@@ -68,5 +68,39 @@ console.log(targetHTML);
 
 
 
+//------------------------------------------------------------//
+//----SHOW/HIDE DIVS on NAV BAR LINK CLICKS
+
+var viewButton = document.getElementById("view");
+var listButton = document.getElementById("list");
+var addNavButton = document.getElementById("add");
+var addSongDiv = document.getElementById("add-songs");
+var listSongDiv = document.getElementById("song-list");
+
+
+
+// viewButton.addEventListener("click");
+
+addNavButton.addEventListener("click", function(event) {
+	addSongDiv.classList.remove("hidden");
+	listSongDiv.classList.add("hidden");
+});
+
+listButton.addEventListener("click", function(event) {
+	listSongDiv.classList.remove("hidden");
+	addSongDiv.classList.add("hidden");
+});
+
+
+
+//--- Collect values from input fields and push to songs array ---//
+
+
+
+
+
+
+
+
 
 
