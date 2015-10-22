@@ -8,7 +8,6 @@ html {
 body {
 	margin: 0 auto;
 	padding: 0;
-	font-family: Ariel, sans-serif;
 }
 
 div#main-container {
@@ -40,12 +39,13 @@ header {
 	background-color: #fff;
 	position: fixed;
 	padding-left: 200px;
+	z-index: 20;
 }
 
 #nav {
 	list-style-type: none;
 	text-align: left;
-  	padding: 19px 9px 16px;
+  	padding: 19px 28px 16px;
   	margin: auto 0;
 }
 
@@ -54,7 +54,7 @@ header {
 }
 
 #nav li {
-	padding: 0 .2em;
+	padding: 0 .25em;
   	width: 45px;
  	text-align: left;
   	display: inline;
@@ -79,11 +79,11 @@ img {
 	position: fixed;
 	margin: 0;
 	width: 215px;
+	height: 100%;
 	background-color: #FCFBF9;
 	box-sizing: border-box;
-	border-radius: 9px 9px 9px 0;
+/*	border-radius: 9px 9px 9px 0;*/
 	padding: 140px 0 0 10px;
-	z-index: -1;
 }
 
 #filter-form {
@@ -112,6 +112,17 @@ img {
 	padding: 3px 7px;
 	border-radius: 4px;
 
+}
+
+/** select box **/
+#artist-select,
+#album-select {
+	background-color: #A8DCD9;
+	border: none;
+	border-radius: 4px;
+	width: 150px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: .85em;
 }
 
 
@@ -185,11 +196,15 @@ button#add-music {
 
 @media screen and (max-width: 960px) {
 	#song-list, #add-music {
-		width: 90%;
+		max-width: 80%;
 		float: right;
+		margin-right: 5%;
 	}
-	#main-container {
-		width: 85%;
+	div#main-container {
+		max-width: 100%;
+		margin: 0 auto;
+		padding-top: 50px;
+		float: right;
 	}
 }
 
