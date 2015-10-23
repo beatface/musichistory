@@ -33,16 +33,16 @@ $(document).ready(function () {
 			outputAlbum += "</option>";
 
 			//concat all to output
-			outputSongs += "<div class='dotted-bottom'>";
+			outputSongs += "<div class='dotted-bottom song-item-div'>";
 			outputSongs += "<h2>" + songName + "</h2>";
 			outputSongs += "<p>" + artistName + " - " + albumName + "</p>";
-			outputSongs += "<button class='delete-song'>Delete</button>"
+			outputSongs += "<button class='delete-song green-button quicksand-font'>Delete</button>"
 			outputSongs += "</div>";
 		}
 		//insert HTML
-		artistSelect.html(outputArtist);
-		albumSelect.html(outputAlbum);
-		targetHTML.html(outputSongs);
+		artistSelect.append(outputArtist);
+		albumSelect.append(outputAlbum);
+		targetHTML.append(outputSongs);
 		console.log(targetHTML);
 
 		// Delete single click on delete button click
@@ -72,7 +72,6 @@ $(document).ready(function () {
 
 	moreSongsButton.click(function (event) {
 		outputSongs = "";
-		loadInitalSongs();
 		$.ajax({
 		url: "more-songs.json"
 		}).done(loadSongData)
@@ -90,20 +89,27 @@ $(document).ready(function () {
 	var newArtist = $("#inputArtist");
 	var newAlbum = $("#inputAlbum");
 	var stringToAdd = "";
+	var newSongsObject = { "songs" : [] };
 
 	//on click, take values and put into string
 	submitMusicButton.click(function(event) {
-		stringToAdd = newSong.val();
-		stringToAdd += " by ";
-		stringToAdd += newArtist.val();
-		stringToAdd += " on the album ";
-		stringToAdd += newAlbum.val();
-		console.log(stringToAdd);
-		//add to array
-		// songs.push(stringToAdd);
-		// console.log(songs);
-		//();
-		//remove from input fields
+		var newobject = { 
+			"title" : newSong.val(),
+			"artist" : newArtist.val(),
+			"album" : newAlbum.val()
+		}
+		// console.log(newobject);
+		var songsArray = newSongsObject.songs;
+		songsArray.push(newobject);
+		// console.log(newSongsObject);
+		stringToAdd = "<div class='dotted-bottom'>";
+		stringToAdd += "<h2>" + songsArray[songsArray.length - 1].title + "</h2>";
+		stringToAdd += "<p>" + songsArray[songsArray.length - 1].artist + " - " + songsArray[songsArray.length - 1].album + "</p>";
+		console.log("string to add", stringToAdd);
+
+		targetHTML.append(stringToAdd);
+
+		// remove from input fields
 		newSong.val("");
 		newArtist.val("");
 		newAlbum.val("");
@@ -121,10 +127,12 @@ $(document).ready(function () {
 	addNavButton.click(function(event) {
 		addSongDiv.show();
 		listSongDiv.hide();
+		moreSongsButton.hide();
 	});
 	listNavButton.click(function(event) {
 		listSongDiv.show();
 		addSongDiv.hide();
+		moreSongsButton.show();
 	});
 
 

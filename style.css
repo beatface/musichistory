@@ -1,4 +1,3 @@
-
 html {
 	margin: 0;
 	padding: 0;
@@ -165,6 +164,20 @@ container div:nth-child(2n+0) {
 
 container div:nth-child(2n+1) {
 	background: #FCFBF9;
+}
+
+.delete-song {
+	/*margin-left: 500px;
+	margin-bottom: 40px;*/
+}
+
+.song-item-div {
+	width: 100%;
+}
+
+.song-item-div h2,
+.song-item-div p {
+	width: 70%;
 }
 
 /************* Add music styling ************/
