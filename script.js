@@ -8,8 +8,6 @@ $(document).ready(function () {
 	var outputAlbum = "";
 
 	function loadSongData(songData) {
-		outputArtist = "<option>-- Select Artist -- </option>";
-		outputAlbum = "<option>-- Select Album -- </option>";
 		for (var i = 0; i < songData.songs.length; i++) {
 			var currentSong = songData.songs[i];
 			// Separate songs, artists and albums from each other
@@ -35,8 +33,8 @@ $(document).ready(function () {
 			//concat all to output
 			outputSongs += "<div class='dotted-bottom song-item-div'>";
 			outputSongs += "<h2>" + songName + "</h2>";
+			outputSongs += "<p class='delete-song'><button class='green-button thin-button-padding quicksand-font'>Delete</button></p>"
 			outputSongs += "<p>" + artistName + " - " + albumName + "</p>";
-			outputSongs += "<button class='delete-song green-button quicksand-font'>Delete</button>"
 			outputSongs += "</div>";
 		}
 		//insert HTML
@@ -46,8 +44,6 @@ $(document).ready(function () {
 		console.log(targetHTML);
 
 		// Delete single click on delete button click
-		var deleteSong = $("#delete-song");
-
 		$("body").click(function(event) {
 			var thisElement = $(event.target);
 			if (thisElement.hasClass("delete-song")) {
@@ -60,6 +56,8 @@ $(document).ready(function () {
 
 	// AJAX to call data from JSON file
 	function loadInitalSongs() {
+		outputArtist = "<option>-- Select Artist -- </option>";
+		outputAlbum = "<option>-- Select Album -- </option>";
 		$.ajax({
 		url: "songs.json"
 		}).done(loadSongData);
@@ -72,6 +70,8 @@ $(document).ready(function () {
 
 	moreSongsButton.click(function (event) {
 		outputSongs = "";
+		outputArtist = "";
+		outputAlbum = "";
 		$.ajax({
 		url: "more-songs.json"
 		}).done(loadSongData)
