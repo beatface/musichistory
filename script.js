@@ -1,16 +1,5 @@
 $(document).ready(function () { 
 
-	var songs = [];
-
-	songs[songs.length] = "Legs > by Z*ZTop on the album Eliminator";
-	songs[songs.length] = "The Logical Song > by Supertr@amp on the album Breakfast in America";
-	songs[songs.length] = "Another Brick in the Wall > by Pink Floyd on the album The Wall";
-	songs[songs.length] = "Welco(me to the Jungle > by Guns & Roses on the album Appetite for Destruction";
-	songs[songs.length] = "Ironi!c > by Alanis Moris*ette on the album Jagged Little Pill";
-	songs.unshift("Short People by Randy Newman on the album Little Criminals");
-	songs.push("Sir Duke by Stevie Wonder on the album Songs in the Key of Life");
-	console.log(songs);
-
 	var targetHTML = $("#song-container");
 	var outputSongs = "";
 	var artistSelect = $("#artist-select");
@@ -18,38 +7,19 @@ $(document).ready(function () {
 	var albumSelect = $("#album-select");
 	var outputAlbum = "";
 
-	//call function to load initial list on page load
-	createSongList();
-
-	function createSongList() {
+	function loadSongData(songData) {
 		outputArtist = "<option>-- Select Artist -- </option>";
 		outputAlbum = "<option>-- Select Album -- </option>";
-		outputSongs = "";
-		for (var i = 0; i < songs.length; i++) {
-			var currentSong = songs[i];
-			currentSong = currentSong.replace(">", "");
-			currentSong = currentSong.replace("by", "-");
-			currentSong = currentSong.replace("*", "");
-			currentSong = currentSong.replace("@", "");
-			currentSong = currentSong.replace("(", "");
-			currentSong = currentSong.replace("!", "");
-			currentSong = currentSong.replace("on the album", "-");
-
-			//Find dashes between song info
-			var dashIndex = currentSong.indexOf("-");
-			console.log(dashIndex);
-
-			var lastDashIndex = currentSong.lastIndexOf("-");
-			console.log(lastDashIndex);
-
-			//Separate songs, artists and albums from each other
-			var songName = currentSong.slice(0, dashIndex);
+		for (var i = 0; i < songData.songs.length; i++) {
+			var currentSong = songData.songs[i];
+			// Separate songs, artists and albums from each other
+			var songName = currentSong.title;
 			console.log(songName);
 
-			var artistName = currentSong.slice(dashIndex + 2, lastDashIndex);
+			var artistName = currentSong.artist;
 			console.log(artistName);
 
-			var albumName = currentSong.slice(lastDashIndex + 2, songs[i].length);
+			var albumName = currentSong.album;
 			console.log(albumName);
 
 			//send artists to artist-select box
@@ -66,6 +36,7 @@ $(document).ready(function () {
 			outputSongs += "<div class='dotted-bottom'>";
 			outputSongs += "<h2>" + songName + "</h2>";
 			outputSongs += "<p>" + artistName + " - " + albumName + "</p>";
+			outputSongs += "<button class='delete-song'>Delete</button>"
 			outputSongs += "</div>";
 		}
 		//insert HTML
@@ -73,10 +44,45 @@ $(document).ready(function () {
 		albumSelect.html(outputAlbum);
 		targetHTML.html(outputSongs);
 		console.log(targetHTML);
-	}
+
+		// Delete single click on delete button click
+		var deleteSong = $("#delete-song");
+
+		$("body").click(function(event) {
+			var thisElement = $(event.target);
+			if (thisElement.hasClass("delete-song")) {
+				console.log("you clicked delete");
+				$(thisElement).parent().remove();
+			}
+		});
+	};
 
 
+	// AJAX to call data from JSON file
+	function loadInitalSongs() {
+		$.ajax({
+		url: "songs.json"
+		}).done(loadSongData);
+	};
+	loadInitalSongs();
 
+
+	//-------- Load more songs ----------//
+	var moreSongsButton = $("#more-songs");
+
+	moreSongsButton.click(function (event) {
+		outputSongs = "";
+		loadInitalSongs();
+		$.ajax({
+		url: "more-songs.json"
+		}).done(loadSongData)
+	});
+	
+
+	
+
+
+	//-----------------------------------------------------------------//
 	//--- Collect values from input fields and push to songs array ---//
 
 	var submitMusicButton = $("#add-music");
@@ -94,22 +100,17 @@ $(document).ready(function () {
 		stringToAdd += newAlbum.val();
 		console.log(stringToAdd);
 		//add to array
-		songs.push(stringToAdd);
-		console.log(songs);
-		createSongList();
+		// songs.push(stringToAdd);
+		// console.log(songs);
+		//();
 		//remove from input fields
 		newSong.val("");
 		newArtist.val("");
 		newAlbum.val("");
 	});
 
-
-
-
-
-
 	//------------------------------------------------------------//
-	//----SHOW/HIDE DIVS on NAV BAR LINK CLICKS
+	//----SHOW/HIDE DIVS on NAV BAR LINK CLICKS----//
 
 	var viewButton = $("#view");
 	var listNavButton = $("#list");
@@ -117,15 +118,10 @@ $(document).ready(function () {
 	var addSongDiv = $("#add-songs");
 	var listSongDiv = $("#song-list");
 
-
-
-	// viewButton.addEventListener("click");
-
 	addNavButton.click(function(event) {
 		addSongDiv.show();
 		listSongDiv.hide();
 	});
-
 	listNavButton.click(function(event) {
 		listSongDiv.show();
 		addSongDiv.hide();
