@@ -1,4 +1,5 @@
-$(document).ready(function () {
+define(["jquery"],
+	function($) {
 
 	var targetHTML = $("#song-container");
 	var outputSongs = "";

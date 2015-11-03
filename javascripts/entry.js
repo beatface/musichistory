@@ -6,7 +6,7 @@ requirejs.config({
 });
 
 require(
-	[],
-	function() {
+	["app-script", "populate-songs", "get-more-songs"],
+	function(appscript, populatesongs, getmoresongs) {
 	}
 );
