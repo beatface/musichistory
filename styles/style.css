@@ -1,4 +1,3 @@
-
 html {
 	margin: 0;
 	padding: 0;
@@ -109,9 +108,15 @@ img {
 	border-bottom: 3px solid #42958F;
 	background-color: #52bab3;
 	font-size: 1em;
-	padding: 3px 7px;
 	border-radius: 4px;
+}
 
+.fat-button-padding {
+	padding: 3px 7px;
+}
+
+.thin-button-padding {
+	padding: 1px 6px;
 }
 
 /** select box **/
@@ -141,12 +146,21 @@ img {
 #add-songs h2 {
 	color: #4C4C4C;
 	margin: 0;
-	padding: .4em 0 0 1em;
+	line-height: .9em;
+}
+
+#song-list h2 {
+	padding: .6em 0 0 1em;
+}
+
+#add-songs h2 {
+	padding: .6em 0 .7em 1em;
 }
 
 #song-list container p,
 #add-songs container p {
-	padding: 1em 1em 1em 1.5em;
+	padding: 0 1em 1.07em 1.5em;
+	line-height: .9em;
 	margin: 0;
 }
 
@@ -165,6 +179,24 @@ container div:nth-child(2n+0) {
 
 container div:nth-child(2n+1) {
 	background: #FCFBF9;
+}
+
+#song-list container p.delete-song {
+	padding: 0 0 0 80%;
+	line-height: .9em;
+}
+
+.song-item-div {
+	width: 100%;
+}
+
+.song-item-div h2,
+.song-item-div p {
+	width: 70%;
+}
+
+#more-songs {
+	margin: 1em 0 0 7em;
 }
 
 /************* Add music styling ************/

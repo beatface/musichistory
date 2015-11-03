@@ -1,0 +1,19 @@
+{
+  "songs": [
+    {
+      "title": "Foolin' Around",
+      "artist": "Connie Smith",
+      "album": "Born to Sing"
+    },
+    {
+      "title": "The Banks of Boyne",
+      "artist": "Damien O'Kane",
+      "album": "Summer Hill"      
+    },
+    {
+      "title": "Time Spent In Los Angeles",
+      "artist": "Dawes",
+      "album": "Nothing Is Wrong"      
+    }
+  ]
+}
