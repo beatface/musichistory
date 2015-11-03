@@ -1,4 +1,4 @@
-$(document).ready(function () { 
+$(document).ready(function () {
 
 	var targetHTML = $("#song-container");
 	var outputSongs = "";
@@ -6,6 +6,15 @@ $(document).ready(function () {
 	var outputArtist = "";
 	var albumSelect = $("#album-select");
 	var outputAlbum = "";
+
+	var viewButton = $("#view");
+	var listNavButton = $("#list");
+	var addNavButton = $("#add");
+	var addSongDiv = $("#add-songs");
+	var listSongDiv = $("#song-list");
+
+	addSongDiv.hide();
+
 
 	function loadSongData(songData) {
 		for (var i = 0; i < songData.songs.length; i++) {
@@ -33,7 +42,7 @@ $(document).ready(function () {
 			//concat all to output
 			outputSongs += "<div class='dotted-bottom song-item-div'>";
 			outputSongs += "<h2>" + songName + "</h2>";
-			outputSongs += "<p class='delete-song'><button class='green-button thin-button-padding quicksand-font'>Delete</button></p>"
+			outputSongs += "<p class='delete-song'><button class='green-button thin-button-padding quicksand-font'>Delete</button></p>";
 			outputSongs += "<p>" + artistName + " - " + albumName + "</p>";
 			outputSongs += "</div>";
 		}
@@ -51,7 +60,7 @@ $(document).ready(function () {
 				$(thisElement).parent().remove();
 			}
 		});
-	};
+	}
 
 
 	// AJAX to call data from JSON file
@@ -61,7 +70,7 @@ $(document).ready(function () {
 		$.ajax({
 		url: "songs.json"
 		}).done(loadSongData);
-	};
+	}
 	loadInitalSongs();
 
 
@@ -74,7 +83,7 @@ $(document).ready(function () {
 		outputAlbum = "";
 		$.ajax({
 		url: "more-songs.json"
-		}).done(loadSongData)
+		}).done(loadSongData);
 	});
 	
 
@@ -97,7 +106,7 @@ $(document).ready(function () {
 			"title" : newSong.val(),
 			"artist" : newArtist.val(),
 			"album" : newAlbum.val()
-		}
+		};
 		// console.log(newobject);
 		var songsArray = newSongsObject.songs;
 		songsArray.push(newobject);
@@ -117,12 +126,6 @@ $(document).ready(function () {
 
 	//------------------------------------------------------------//
 	//----SHOW/HIDE DIVS on NAV BAR LINK CLICKS----//
-
-	var viewButton = $("#view");
-	var listNavButton = $("#list");
-	var addNavButton = $("#add");
-	var addSongDiv = $("#add-songs");
-	var listSongDiv = $("#song-list");
 
 	addNavButton.click(function(event) {
 		addSongDiv.show();
