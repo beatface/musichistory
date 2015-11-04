@@ -8,136 +8,79 @@
     <title>beats4u</title>
     <link rel="stylesheet" href="./lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700|Source+Sans+Pro' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/main.css">
   </head>
   <body class="quicksand-font">
-
     <img src="imgs/beats4ulogo2.png" alt="beats4u logo">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">List<span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Add</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Link</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-
-
-
-
-
-
-
-    <div class="container-fluid">
-      
-      <!-- <div class="row">
-        <header class="navbar-header bottom-border">
-        <nav class="navigation border-bottom quicksand-font">
-          <nav class="nav">
-            <ul class="nav">
-              <li id="list"><a href="#">List Music</a></li>
-              <li> | </li>
-              <li id="add"><a href="#">Add Music</a></li>
-            </ul>
-          </nav>
-        </header>
-      </div> -->
-      <div class="row">
-        <div class="col-md-4">
-          <div id="sidebar" class="border source-font">
-            <form action="#" method="#" id="filter-form">
-              <label for="length">Song length:</label>
-              <input type="range" name="length" min="1" max="6" step=".5">
-              <label for="artist-select">Artist:</label>
-              <select id="artist-select" name="artist-select">
-                <!-- <option>Robyn</option>
-                <option>Beyonce</option>
-                <option>Jason Isbell</option>
-                <option>Hozier</option> -->
-              </select>
-              <label for="album-select">Album:</label>
-              <select id="album-select" name="album-select">
-                
-              </select>
-              <label for="genre-options">Genre:</label>
-              <p>
-                <input type="checkbox" name="genre-options" value="rock"> Rock
-                <input type="checkbox" name="genre-options" value="pop"> Pop
-              </p>
-              <p>  
-                <input type="checkbox" name="genre-options" value="blues"> Blues
-                <input type="checkbox" name="genre-options" value="classical"> Classical
-              </p>
-              <p>
-                <input type="checkbox" name="genre-options" value="jazz"> Jazz
-                <input type="checkbox" name="genre-options" value="hip-hop"> Hip-hop
-              </p>
-              <div id="container">
-                <input type="submit" id="filterButton" value="Filter" class="quicksand-font fat-button-padding green-button">
-              </div>  
-            </form>
-          </div>
-        </div>
-        <div class="col-md-8">
-          <div id="main-container">
-            <div id="song-list" class="quicksand-font">
-              <container id="song-container">
-                
-              </container>
-            </div>
-            <button id="more-songs" class="green-button fat-button-padding quicksand-font">Show More</button>
-            <div id="add-songs" class="quicksand-font">
-              <container id="song-add-container">
-                <h2 class="add-music-header">Add Music</h2>
-                <p>
-                  <label for="Song">Song:</label>
-                  <input type="text" name="Song" id="inputSong">
-                </p>
-                <p>
-                  <label for="artist">Artist:</label>
-                  <input type="text" name="artist" id="inputArtist">
-                </p>
-                <p>
-                  <label for="Album">Album:</label>
-                  <input type="text" name="Album" id="inputAlbum">
-                </p>
-                <button id="add-music" class="quicksand-font fat-button-padding green-button">Add</button>
-              </container>
-            </div>
-          </div>
-        </div>
+    <header id="header" class="bottom-border">
+      <nav class="navigation border-bottom quicksand-font">
+        <ul id="nav">
+          <li id="list"><a href="#">List Music</a></li>
+          <li> | </li>
+          <li id="add"><a href="#">Add Music</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+      <div id="sidebar" class="border source-font">
+        <form action="#" method="#" id="filter-form">
+          <label for="length">Song length:</label>
+          <input type="range" name="length" min="1" max="6" step=".5">
+          <label for="artist-select">Artist:</label>
+          <select id="artist-select" name="artist-select">
+           
+          </select>
+          <label for="album-select">Album:</label>
+          <select id="album-select" name="album-select">
+            
+          </select>
+          <label for="genre-options">Genre:</label>
+          <p>
+            <input type="checkbox" name="genre-options" value="rock"> Rock
+            <input type="checkbox" name="genre-options" value="pop"> Pop
+          </p>
+          <p>  
+            <input type="checkbox" name="genre-options" value="blues"> Blues
+            <input type="checkbox" name="genre-options" value="jlassical"> Classical
+          </p>
+          <p>
+            <input type="checkbox" name="genre-options" value="jazz"> Jazz
+            <input type="checkbox" name="genre-options" value="hip-hop"> Hip-hop
+          </p>
+          <div id="container">
+            <input type="submit" id="filterButton" value="Filter" class="quicksand-font fat-button-padding green-button">
+          </div>  
+        </form>
+      </div>
+    <div id="main-container">
+      <div id="song-list" class="quicksand-font">
+        <container id="song-container">
+          
+        </container>
+      </div>
+      <button id="more-songs" class="green-button fat-button-padding quicksand-font">Show More</button>
+      <div id="add-songs" class="hidden quicksand-font">
+        <container id="song-add-container">
+          <h2 class="add-music-header">Add Music</h2>
+          <p>
+            <label for="Song">Song:</label>
+            <input type="text" name="Song" id="inputSong">
+          </p>
+          <p>
+            <label for="artist">Artist:</label>
+            <input type="text" name="artist" id="inputArtist">
+          </p>
+          <p>
+            <label for="Album">Album:</label>
+            <input type="text" name="Album" id="inputAlbum">
+          </p>
+          <button id="add-music" class="quicksand-font fat-button-padding green-button">Add</button>
+        </container>
       </div>
     </div>
-    <!-- <script data-main="javascripts/entry" 
-         src="lib/bower_components/requirejs/require.js"></script> -->
     <script src="./lib/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="./lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./javascripts/script.js"></script>
+    <script data-main="javascripts/entry" 
+         src="lib/bower_components/requirejs/require.js"></script>
   </body>
 </html>
