@@ -9,27 +9,3 @@ define(["jquery"], function($) {
  		}
 	};
 });
-
-
-	// function loadInitalSongs() {
-	// 	outputArtist = "<option>-- Select Artist -- </option>";
-	// 	outputAlbum = "<option>-- Select Album -- </option>";
-	// 	$.ajax({
-	// 	url: "songs.json"
-	// 	}).done(loadSongData);
-	// }
-
-
-
-
-
-// define(["jquery"], function($) {
-//   return {
-//     getMeSomeData: function(callbackFunctionReference) {
-//       $.ajax({...}).done(function(jsonDataSentByjQuery) {
-//         callbackFunctionReference(jsonDataSentByjQuery);
-//       }
-//     }
-//   }
-// });
-

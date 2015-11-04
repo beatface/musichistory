@@ -26,6 +26,12 @@ define(["jquery", "populate-songs", "get-more-songs"],
 
 	addSongDiv.hide();
 
+    $("#menu-toggle").click(function(e) {
+    	console.log("you clicked");
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
 	function loadSongData(songData) {
 		for (var i = 0; i < songData.songs.length; i++) {
 			var currentSong = songData.songs[i];
