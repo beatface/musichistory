@@ -1,12 +1,10 @@
-define(["jquery"], function($) {
+define(["jquery", "loadsongs"], function($, loadsongs) {
+	console.log("get more songs");
   return {
-    loadMoreSongs: function (event) {
-		outputSongs = "";
-		outputArtist = "";
-		outputAlbum = "";
+    loadSongData: function() {
 		$.ajax({
 		url: "javascripts/more-songs.json"
-		}).done(event);
+		}).done(loadsongs.insertSongstoDOM);
 		}
 	};
 });

@@ -1,11 +1,10 @@
 define(["jquery"], function($) {
+	console.log("populate-songs");
   return {
-    loadInitalSongs: function(event) {
-    	outputArtist = "<option>-- Select Artist -- </option>";
-		outputAlbum = "<option>-- Select Album -- </option>";
+    loadSongData: function(callback) {
       $.ajax({
       	url: "javascripts/songs.json"
-      	}).done(event);
+      	}).done(callback);
  		}
 	};
 });

@@ -27,7 +27,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li id="list" class="active"><a href="#">List Music<span class="sr-only">(current)</span></a></li>
+            <li id="list" class="active"><a href="#">List Music</a></li>
             <li id="add"><a href="#">Add Music</a></li>
             <!-- toggle button -->
             <li><a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></li>
@@ -53,48 +53,75 @@
 
     <div id="wrapper">
       <div id="sidebar-wrapper">
-
-        <!-- sidebar content -->
-        <form action="#" method="#" id="filter-form">
-          <label for="length">Song length:</label>
-          <input type="range" name="length" min="1" max="6" step=".5">
-          <label for="artist-select">Artist:</label>
-          <select id="artist-select" class="form-control" name="artist-select">
-            <!-- dynamically loaded options -->
-          </select>
-          <label for="album-select">Album:</label>
-          <select id="album-select" class="form-control" name="album-select">
-            <!-- dynamically loaded options -->
-          </select>
-          <label for="genre-options">Genre:</label>
-          <div class="row">
-            <div class="col-md-5 less-padding">
-              <label><input type="checkbox" name="genre-options" value="rock"> Rock</label>
+      <!-- sidebar content -->
+        <div id="sidebar-container" class="container-fluid">
+          <form action="#" method="#" id="filter-form">
+            <div class="row">
+              <div class="col-md-10">
+                <label for="length">Song length:</label>
+                <input type="range" name="length" min="1" max="6" step=".5">
+              </div>
             </div>
-            <div class="col-md-7 less-padding">
-              <label><input type="checkbox" name="genre-options" value="pop"> Pop</label>
+            <div class="row">
+              <div class="col-md-10">
+                <label for="artist-select">Artist:</label>
+                <select id="artist-select" class="form-control" name="artist-select">
+                <!-- dynamically loaded options -->
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-5 less-padding">
-              <label><input type="checkbox" name="genre-options" value="blues"> Blues</label>
+            <div class="row">
+              <div class="col-md-10">
+                <label for="album-select">Album:</label>
+                <select id="album-select" class="form-control" name="album-select">
+                <!-- dynamically loaded options -->
+                </select>
+              </div>
             </div>
-            <div class="col-md-7 less-padding">
-              <label><input type="checkbox" name="genre-options" value="jlassical"> Classical</label>
+            <div class="row">
+              <div class="col-md-10">
+                <label for="genre-options">Genre:</label>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-5 less-padding">
-              <label><input type="checkbox" name="genre-options" value="jazz"> Jazz</label>
+            <div class="row">
+              <div class="col-md-10">
+                <div class="col-md-5 less-padding">
+                  <label><input type="checkbox" name="genre-options" value="rock"> Rock</label>
+                </div>
+                <div class="col-md-7 less-padding">
+                  <label><input type="checkbox" name="genre-options" value="pop"> Pop</label>
+                </div>
+              </div>
             </div>
-            <div class="col-md-7 less-padding">
-              <label><input type="checkbox" name="genre-options" value="hip-hop"> Hip-hop</label>
+            <div class="row">
+              <div class="col-md-10">
+                <div class="col-md-5 less-padding">
+                  <label><input type="checkbox" name="genre-options" value="blues"> Blues</label>
+                </div>
+                <div class="col-md-7 less-padding">
+                  <label><input type="checkbox" name="genre-options" value="classical"> Classical</label>
+                </div>
+              </div>
             </div>
-          </div>
-          <div id="container">
-            <input type="submit" id="filterButton" value="Filter" class="quicksand-font fat-button-padding green-button">
-          </div>  
-        </form>
+            <div class="row">
+              <div class="col-md-10">
+                <div class="col-md-5 less-padding">
+                  <label><input type="checkbox" name="genre-options" value="jazz"> Jazz</label>
+                </div>
+                <div class="col-md-7 less-padding">
+                  <label><input type="checkbox" name="genre-options" value="hip-hop"> Hip-hop</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10">
+                <div id="container">
+                  <input type="submit" id="filterButton" value="Filter" class="quicksand-font fat-button-padding green-button">
+                </div>
+              </div>
+            </div>  
+          </form>
+        </div> <!-- /.container-fluid -->
       </div> <!-- /.sidebar-wrapper -->
 
       <!-- main content -->
