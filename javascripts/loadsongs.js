@@ -32,11 +32,11 @@ define(["jquery"], function ($) {
 					outputAlbum += "</option>";
 
 					//concat all to output
-					outputSongs += "<div class='dotted-bottom song-item-div'>";
+					outputSongs += "<div class='row dotted-bottom song-item-div'><div class='col-md-10'>";
 					outputSongs += "<h2>" + songName + "</h2>";
-					outputSongs += "<p class='delete-song'><button class='green-button thin-button-padding quicksand-font'>Delete</button></p>";
-					outputSongs += "<p>" + artistName + " - " + albumName + "</p>";
-					outputSongs += "</div>";
+					outputSongs += "<p>" + artistName + " - " + albumName + "</p></div>";
+					outputSongs += "<div class='col-md-2'><p class='delete-song'><button class='green-button thin-button-padding quicksand-font'>Delete</button></p>";
+					outputSongs += "</div></div>";
 				}
 				//insert HTML
 				artistSelect.append(outputArtist);
