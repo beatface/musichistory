@@ -2,7 +2,8 @@ requirejs.config({
 	baseUrl : "./javascripts",
 	paths : {
 		"jquery" : "../lib/bower_components/jquery/dist/jquery.min",
-		"bootstrap" : "../lib/bower_components/bootstrap/dist/js/bootstrap.min.js"
+		"hbs" : "../lib/bower_components/require-handlebars-plugin/hbs",
+		"bootstrap" : "../lib/bower_components/bootstrap/dist/js/bootstrap.min"
 	},
 	shim: {
 		"bootstrap": ["jquery"]
@@ -10,8 +11,8 @@ requirejs.config({
 });
 
 require(
-	["bootstrap", "app-script", "submit-input-songs"],
-	function(bootstrap, appscript, submitinputsongs) {
-		console.log("entry yes");
+	["bootstrap", "hbs", "app-script", "submit-input-songs"],
+	function(bootstrap, Handlebars, appscript, submitinputsongs) {
+		// console.log("entry yes");
 	}
 );

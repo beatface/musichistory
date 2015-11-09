@@ -7,7 +7,7 @@ define(["jquery", "populate-songs", "get-more-songs", "loadSongs"],
 	var listNavButton = $("#list");
 	var addNavButton = $("#add");
 	var addSongDiv = $("#add-songs");
-	var listSongDiv = $("#song-list");
+	var listSongDiv = $("#song-container");
 	//button to list more songs
 	var moreSongsButton = $("#more-songs");
 
@@ -31,16 +31,22 @@ define(["jquery", "populate-songs", "get-more-songs", "loadSongs"],
 	    	$("#list").toggleClass("active");
 	    });
 
-
-	    outputArtist = "<option>-- Select Artist -- </option>";
-		outputAlbum = "<option>-- Select Album -- </option>";
-
 		// AJAX to call song data from JSON file
 		populatesongs.loadSongData(loadsongs.insertSongstoDOM);
-
 		//-------- Load more songs ----------//
-
 		$(moreSongsButton).click(getmoresongs.loadSongData);
+
+		
+		// Delete single song item on delete button click
+		$("body").click(function(event) {
+			console.log("you clicked!");
+			var thisElement = $(event.target);
+			var thisParent = thisElement.parent();
+			if (thisParent.hasClass("delete-song")) {
+				console.log("you clicked delete");
+				$(thisParent).parent().remove();
+			}
+		});
 		
 		//-----------------------------------------------------------------//
 		//--- Collect values from input fields and push to songs array ---//

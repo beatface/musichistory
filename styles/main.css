@@ -5,9 +5,6 @@ html, body {
 body {
   padding-top: 50px; }
 
-div#main-container {
-  padding: 0; }
-
 div#main-row {
   height: 100%; }
 
@@ -23,31 +20,6 @@ div#main-row {
 
 .source-font {
   font-family: 'Source Sans Pro', sans-serif; }
-
-header {
-  background-color: #fff;
-  position: fixed;
-  padding-left: 200px;
-  z-index: 20; }
-
-#nav {
-  list-style-type: none;
-  text-align: left;
-  padding: 19px 28px 16px;
-  margin: auto 0; }
-
-#nav ul {
-  display: inline-block; }
-
-#nav li {
-  padding: 0 .25em;
-  width: 45px;
-  text-align: left;
-  display: inline; }
-
-#nav a {
-  text-decoration: none;
-  font-size: 1.15em; }
 
 img {
   width: 190px;
@@ -101,40 +73,53 @@ img {
   box-sizing: border-box;
   border-radius: 9px; }
 
-#song-list h2,
 #add-songs h2 {
   color: #4C4C4C;
   margin: 0;
   line-height: .9em; }
 
-#song-list h2 {
-  padding: .6em 0 0 1em; }
-
 #add-songs h2 {
   padding: .6em 0 .7em 1em; }
 
-#song-list container p,
 #add-songs container p {
   padding: 0 1em 1.07em 1.5em;
   line-height: .9em;
   margin: 0; }
 
-container div:first-child {
+#song-container {
+  color: #4C4C4C;
+  margin: 0;
+  line-height: .9em; }
+  #song-container h2 {
+    padding: 0 0 0 1em;
+    margin-top: 12px; }
+  #song-container p {
+    padding: 0 1em 1.07em 1.5em;
+    line-height: .9em;
+    margin: 0; }
+  #song-container .col-md-10,
+  #song-container .col-md-2 {
+    padding: 0; }
+  #song-container .relative-position {
+    position: relative; }
+
+.vertical-align {
+  position: absolute;
+  margin-top: 20%;
+  right: 15%; }
+
+#song-container > div:first-child {
   border-radius: 9px 9px 0 0; }
 
-container div:last-child {
+#song-container > div:last-child {
   border-radius: 0 0 9px 9px;
   border: none; }
 
-container div:nth-child(2n+0) {
+#song-container > div:nth-child(2n+0) {
   background: #F9F2DB; }
 
-container div:nth-child(2n+1) {
+#song-container > div:nth-child(2n+1) {
   background: #FCFBF9; }
-
-#song-list container p.delete-song {
-  padding: 0 0 0 80%;
-  line-height: .9em; }
 
 #more-songs {
   margin: 1em 0 0 7em; }

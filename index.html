@@ -66,6 +66,7 @@
               <div class="col-md-10">
                 <label for="artist-select">Artist:</label>
                 <select id="artist-select" class="form-control" name="artist-select">
+                  <option>---select artist---</option>
                 <!-- dynamically loaded options -->
                 </select>
               </div>
@@ -74,6 +75,7 @@
               <div class="col-md-10">
                 <label for="album-select">Album:</label>
                 <select id="album-select" class="form-control" name="album-select">
+                  <option>---select album---</option>
                 <!-- dynamically loaded options -->
                 </select>
               </div>
@@ -126,41 +128,35 @@
 
       <!-- main content -->
       <div id="page-content-wrapper">
-        <div class="page-content">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <!-- content of page -->
-                <!-- larger column -->
-                <div class="col-md-10">
-                  <div id="main-container">
-                    <div id="song-list" class="quicksand-font">
-                      <container id="song-container">
-                        
-                      </container>
-                    </div>
-                    <button id="more-songs" class="green-button fat-button-padding quicksand-font">Show More</button>
-                    <div id="add-songs" class="quicksand-font">
-                      <container id="song-add-container">
-                        <h2 class="add-music-header">Add Music</h2>
-                        <p>
-                          <label for="Song">Song:</label>
-                          <input type="text" name="Song" id="inputSong">
-                        </p>
-                        <p>
-                          <label for="artist">Artist:</label>
-                          <input type="text" name="artist" id="inputArtist">
-                        </p>
-                        <p>
-                          <label for="Album">Album:</label>
-                          <input type="text" name="Album" id="inputAlbum">
-                        </p>
-                        <button id="add-music" class="quicksand-font fat-button-padding green-button">Add</button>
-                      </container>
-                    </div>
-                  </div>
+        <div class="container-fluid">
+          <div class="row">
+            <!-- content of page -->
+            <!-- larger column -->
+            <div class="col-md-10">
+              <div id="main-container">
+                <div id="song-container" class="quicksand-font">
+                  
                 </div>
-              </div>
+                <button id="more-songs" class="green-button fat-button-padding quicksand-font">Show More</button>
+                <div id="add-songs" class="quicksand-font">
+                  <container id="song-add-container">
+                    <h2 class="add-music-header">Add Music</h2>
+                    <p>
+                      <label for="Song">Song:</label>
+                      <input type="text" name="Song" id="inputSong">
+                    </p>
+                    <p>
+                      <label for="artist">Artist:</label>
+                      <input type="text" name="artist" id="inputArtist">
+                    </p>
+                    <p>
+                      <label for="Album">Album:</label>
+                      <input type="text" name="Album" id="inputAlbum">
+                    </p>
+                    <button id="add-music" class="quicksand-font fat-button-padding green-button">Add</button>
+                  </container>
+                </div> <!-- /.#add-songs -->
+              </div> <!-- /.#main-container -->
             </div>
           </div>
         </div>

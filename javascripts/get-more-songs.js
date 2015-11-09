@@ -1,4 +1,4 @@
-define(["jquery", "loadsongs"], function($, loadsongs) {
+ define(["jquery", "loadsongs"], function($, loadsongs) {
 	console.log("get more songs");
   return {
     loadSongData: function() {
