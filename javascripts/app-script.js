@@ -93,11 +93,9 @@ define(["jquery", "populate-songs", "loadSongs", "filter-songs"],
 		addNavButton.click(function(event) {
 			addSongDiv.show();
 			listSongDiv.hide();
-			moreSongsButton.hide();
 		});
 		listNavButton.click(function(event) {
 			listSongDiv.show();
 			addSongDiv.hide();
-			moreSongsButton.show();
 		});
 });

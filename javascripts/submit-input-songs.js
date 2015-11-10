@@ -1,4 +1,4 @@
-define(["jquery", "loadsongs"], function($, loadsongs) {
+define(["jquery", "populate-songs", "loadsongs"], function($, populatesongs, loadsongs) {
 	// console.log("submit input songs is working!");
 	//inputs, etc for adding new song data
 	var submitMusicButton = $("#add-music");
@@ -19,8 +19,8 @@ define(["jquery", "loadsongs"], function($, loadsongs) {
 			url: "https://musichistoryemma.firebaseio.com/songs.json",
 			method: "POST",
 			data: JSON.stringify(newSongObject)
-		}).done(function(addedSong) {
-			loadsongs.insertSongstoDOM(newSongObject);
+		}).done(function() {
+			populatesongs.loadSongData(loadsongs.insertSongstoDOM);
 		});
 
 		//resetting fields to be empty

@@ -38,16 +38,11 @@ define(["jquery", "populate-songs"], function ($, populatesongs) {
 				});
 			},
 			filterByAlbum: function(songData) {
-				// create object and array to hold filtered songs
 				var filteredList = {};
 				var filteredArray = [];
-				// clear out #song-container
 				$("#song-container").html("");
-				// target selected value
 				var albumSelect = $("#album-select").val();
-				// target main object from ajax call
 				var songObjs = songData.songs;
-				// target each individual song object
 				for (var songkey in songObjs) {
 					// console.log("songkey", songkey);
 				    if (songObjs.hasOwnProperty(songkey)) {
@@ -69,9 +64,7 @@ define(["jquery", "populate-songs"], function ($, populatesongs) {
 			filterByBoth: function(songData) {
 				var filteredList = {};
 				var filteredArray = [];
-				// clear out #song-container
 				$("#song-container").html("");
-				// target selected value
 				var albumSelect = $("#album-select").val();
 				var artistSelect = $("#artist-select").val();
 				// target main object from ajax call
