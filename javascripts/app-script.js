@@ -1,5 +1,5 @@
-define(["jquery", "populate-songs", "get-more-songs", "loadSongs"], 
-	function($, populatesongs, getmoresongs, loadsongs) {
+define(["jquery", "populate-songs", "loadSongs"], 
+	function($, populatesongs, loadsongs) {
 
 	console.log("app script start");
 	//buttons and divs for changing view
@@ -8,6 +8,8 @@ define(["jquery", "populate-songs", "get-more-songs", "loadSongs"],
 	var addNavButton = $("#add");
 	var addSongDiv = $("#add-songs");
 	var listSongDiv = $("#song-container");
+	var filterButton = $("#filterButton");
+	var clearButton = $("#clearButton");
 	//button to list more songs
 	var moreSongsButton = $("#more-songs");
 
@@ -34,7 +36,6 @@ define(["jquery", "populate-songs", "get-more-songs", "loadSongs"],
 		// AJAX to call song data from JSON file
 		populatesongs.loadSongData(loadsongs.insertSongstoDOM);
 		//-------- Load more songs ----------//
-		$(moreSongsButton).click(getmoresongs.loadSongData);
 
 		
 		// Delete single song item on delete button click
@@ -48,9 +49,10 @@ define(["jquery", "populate-songs", "get-more-songs", "loadSongs"],
 			}
 		});
 		
-		//-----------------------------------------------------------------//
-		//--- Collect values from input fields and push to songs array ---//
-		//on submit button click, take input song values and put into string
+		//------------------------------------------------------------//
+		//----Handlers for filter and clear buttons----//
+
+
 
 		//------------------------------------------------------------//
 		//----SHOW/HIDE DIVS on NAV BAR LINK CLICKS----//

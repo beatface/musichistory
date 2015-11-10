@@ -3,7 +3,7 @@ define(["jquery"], function($) {
   return {
     loadSongData: function(callback) {
       $.ajax({
-      	url: "javascripts/songs.json"
+      	url: "https://musichistoryemma.firebaseio.com/.json"
       	}).done(callback);
  		}
 	};

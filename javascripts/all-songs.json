@@ -1,0 +1,34 @@
+{
+  "songs": {
+    "closemyeyes": {
+      "title": "Close My Eyes",
+      "artist": "Arthur Russell",
+      "album": "Love Is Overtaking Me"
+    },
+    "nosleep": {
+      "title": "No Sleep Til Brooklyn",
+      "artist": "Beastie Boys",
+      "album": "Licensed to Ill"      
+    },
+    "nickoftime": {
+      "title": "Nick of Time",
+      "artist": "Bonnie Raitt",
+      "album": "Nick of Time"      
+    },
+    "foolinaround": {
+      "title": "Foolin' Around",
+      "artist": "Connie Smith",
+      "album": "Born to Sing"
+    },
+    "banksofboyne": {
+      "title": "The Banks of Boyne",
+      "artist": "Damien O'Kane",
+      "album": "Summer Hill"      
+    },
+    "timespentinla": {
+      "title": "Time Spent In Los Angeles",
+      "artist": "Dawes",
+      "album": "Nothing Is Wrong"      
+    }
+  }
+}

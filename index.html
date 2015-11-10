@@ -58,12 +58,6 @@
           <form action="#" method="#" id="filter-form">
             <div class="row">
               <div class="col-md-10">
-                <label for="length">Song length:</label>
-                <input type="range" name="length" min="1" max="6" step=".5">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-10">
                 <label for="artist-select">Artist:</label>
                 <select id="artist-select" class="form-control" name="artist-select">
                   <option>---select artist---</option>
@@ -82,43 +76,9 @@
             </div>
             <div class="row">
               <div class="col-md-10">
-                <label for="genre-options">Genre:</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-10">
-                <div class="col-md-5 less-padding">
-                  <label><input type="checkbox" name="genre-options" value="rock"> Rock</label>
-                </div>
-                <div class="col-md-7 less-padding">
-                  <label><input type="checkbox" name="genre-options" value="pop"> Pop</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-10">
-                <div class="col-md-5 less-padding">
-                  <label><input type="checkbox" name="genre-options" value="blues"> Blues</label>
-                </div>
-                <div class="col-md-7 less-padding">
-                  <label><input type="checkbox" name="genre-options" value="classical"> Classical</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-10">
-                <div class="col-md-5 less-padding">
-                  <label><input type="checkbox" name="genre-options" value="jazz"> Jazz</label>
-                </div>
-                <div class="col-md-7 less-padding">
-                  <label><input type="checkbox" name="genre-options" value="hip-hop"> Hip-hop</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-10">
                 <div id="container">
-                  <input type="submit" id="filterButton" value="Filter" class="quicksand-font fat-button-padding green-button">
+                  <input type="submit" id="filterButton" value="Filter" class="quicksand-font fat-button green-button">
+                  <input type="submit" id="clearButton" value="Clear" class="quicksand-font fat-button red-button">
                 </div>
               </div>
             </div>  
@@ -137,23 +97,37 @@
                 <div id="song-container" class="quicksand-font">
                   
                 </div>
-                <button id="more-songs" class="green-button fat-button-padding quicksand-font">Show More</button>
+               <!--  <button id="more-songs" class="green-button fat-button-padding quicksand-font">Show More</button> -->
                 <div id="add-songs" class="quicksand-font">
                   <container id="song-add-container">
                     <h2 class="add-music-header">Add Music</h2>
-                    <p>
-                      <label for="Song">Song:</label>
-                      <input type="text" name="Song" id="inputSong">
-                    </p>
-                    <p>
-                      <label for="artist">Artist:</label>
-                      <input type="text" name="artist" id="inputArtist">
-                    </p>
-                    <p>
-                      <label for="Album">Album:</label>
-                      <input type="text" name="Album" id="inputAlbum">
-                    </p>
-                    <button id="add-music" class="quicksand-font fat-button-padding green-button">Add</button>
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-1">
+                          <label for="Song">Song:</label>
+                        </div>
+                        <div class="col-md-11">
+                          <input type="text" name="Song" id="inputSong">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-1">
+                          <label for="artist">Artist:</label>
+                        </div>
+                        <div class="col-md-11">
+                          <input type="text" name="artist" id="inputArtist">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-1">
+                          <label for="Album">Album:</label>
+                        </div>
+                        <div class="col-md-11">
+                          <input type="text" name="Album" id="inputAlbum">
+                        </div>
+                      </div>
+                    </div>
+                    <button id="add-music" class="quicksand-font fat-button green-button">Add</button>
                   </container>
                 </div> <!-- /.#add-songs -->
               </div> <!-- /.#main-container -->
