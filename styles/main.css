@@ -61,7 +61,7 @@ img {
   padding: 25px 19px; }
 
 #sidebar-container {
-  padding: 0; }
+  padding: 20px 0 0 15px; }
 
 /** select box **/
 #artist-select,

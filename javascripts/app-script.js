@@ -1,17 +1,18 @@
-define(["jquery", "populate-songs", "loadSongs"], 
-	function($, populatesongs, loadsongs) {
+define(["jquery", "populate-songs", "loadSongs", "filter-songs"], 
+	function($, populatesongs, loadsongs, filtersongs) {
 
-	console.log("app script start");
-	//buttons and divs for changing view
-	var viewButton = $("#view");
-	var listNavButton = $("#list");
-	var addNavButton = $("#add");
-	var addSongDiv = $("#add-songs");
-	var listSongDiv = $("#song-container");
-	var filterButton = $("#filterButton");
-	var clearButton = $("#clearButton");
-	//button to list more songs
-	var moreSongsButton = $("#more-songs");
+		console.log("app script start");
+		//buttons and divs for changing view
+		var viewButton = $("#view");
+		var listNavButton = $("#list");
+		var addNavButton = $("#add");
+		var addSongDiv = $("#add-songs");
+		var listSongDiv = $("#song-container");
+		//sidebar elements for filter
+		var artistSelect = $("#artist-select");
+		var albumSelect = $("#album-select");
+		var filterButton = $("#filterButton");
+		var clearButton = $("#clearButton");
 
 		addSongDiv.hide();
 
@@ -50,9 +51,41 @@ define(["jquery", "populate-songs", "loadSongs"],
 		});
 		
 		//------------------------------------------------------------//
-		//----Handlers for filter and clear buttons----//
+		//----Handlers, functions for filter and clear buttons----//
 
 
+
+		$(filterButton).click(function(event){
+			// console.log("artist selected", artistSelect.val());
+			//if nothing is selected
+			if (artistSelect.val() === "---select artist---" && albumSelect.val() === "---select album---") {
+				//do nothing
+				console.log("you need to select something!");
+			//if an artist is selected	
+			} else if (artistSelect.val() !== "---select artist---"  && albumSelect.val() === "---select album---") {
+				// filter by artist
+				console.log("you selected an artist");
+				populatesongs.loadSongData(filtersongs.filterByArtist);
+			//if an album is selected
+			} else if (artistSelect.val() === "---select artist---"  && albumSelect.val() !== "---select album---") {
+				//filter by album
+				console.log("you selected an album");
+				populatesongs.loadSongData(filtersongs.filterByAlbum);
+			//else if both selected
+			} else {
+				//filter by both
+				console.log("you selected both");
+				populatesongs.loadSongData(filtersongs.filterByBoth);
+			}
+		});
+
+		$(clearButton).click(function(event){
+			$("#song-container").html("");
+			$(artistSelect).html("<option>---select artist---</option>");
+			$(albumSelect).html("<option>---select album---</option>");
+			populatesongs.loadSongData(loadsongs.insertSongstoDOM);
+
+		});
 
 		//------------------------------------------------------------//
 		//----SHOW/HIDE DIVS on NAV BAR LINK CLICKS----//

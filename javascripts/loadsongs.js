@@ -4,7 +4,7 @@ define(["jquery"], function ($) {
 		return {
 			insertSongstoDOM: function(songData) {
 				//hbs template load with requirejs for SONG-CONTAINER
-				console.log(songData);
+				console.log("song data", songData);
 				require(["hbs!../templates/songs"], function(songTemplate) {
 					$("#song-container").append(songTemplate(songData));
 				});
