@@ -1,15 +1,15 @@
-define(["jquery", "getUnique"], function ($, getUnique) {
+define(["jquery", "getUnique", "make-array"], function ($, getUnique, makearraymodule) {
 		// console.log("load-songs is working!");
 
 		return {
 			insertSongstoDOM: function(songData) {
 				//hbs template load with requirejs for SONG-CONTAINER
 				console.log("song data", songData);
+				var dataArray = makearraymodule.makeArray(songData);
 				require(["hbs!../templates/songs"], function(songTemplate) {
-					$("#song-container").append(songTemplate(songData));
+					$("#song-container").append(songTemplate(dataArray));
 				});
 				
-				var dataArray = $.map(songData.songs, function(el) { return el; });
 				// console.log("dataArray", dataArray);
 				var uniqueArtists = getUnique.getUniqueArtists(dataArray);
 				// console.log("uniqueArtists", uniqueArtists);

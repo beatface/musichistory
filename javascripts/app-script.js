@@ -44,6 +44,11 @@ define(["jquery", "populate-songs", "loadSongs", "filter-songs"],
 			console.log("you clicked!");
 			var thisElement = $(event.target);
 			var thisParent = thisElement.parent();
+			console.log("thisElement", thisParent.parent().children().children("h2").html());
+			$.ajax({
+		      	url: "https://musichistoryemma.firebaseio.com/" +  + ".json",
+		      	method: "DELETE"
+		      	}).done(function(){ console.log("Delete was successful"); });
 			if (thisParent.hasClass("delete-song")) {
 				console.log("you clicked delete");
 				$(thisParent).parent().remove();
