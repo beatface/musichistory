@@ -1,4 +1,4 @@
-define(["jquery"], function ($) {
+define(["jquery", "getUnique"], function ($, getUnique) {
 		// console.log("load-songs is working!");
 
 		return {
@@ -8,15 +8,20 @@ define(["jquery"], function ($) {
 				require(["hbs!../templates/songs"], function(songTemplate) {
 					$("#song-container").append(songTemplate(songData));
 				});
-
+				
+				var dataArray = $.map(songData.songs, function(el) { return el; });
+				// console.log("dataArray", dataArray);
+				var uniqueArtists = getUnique.getUniqueArtists(dataArray);
+				// console.log("uniqueArtists", uniqueArtists);
 				//adding artists to select boxes
 				require(["hbs!../templates/artistselect"], function(songTemplate) {
-					$("#artist-select").append(songTemplate(songData));
+					$("#artist-select").append(songTemplate(uniqueArtists));
 				});
 				
+				var uniqueAlbums = getUnique.getUniqueAlbums(dataArray);
 				//adding albums to select boxes
 				require(["hbs!../templates/albumselect"], function(songTemplate) {
-					$("#album-select").append(songTemplate(songData));
+					$("#album-select").append(songTemplate(uniqueAlbums));
 				});
 			}
 		};

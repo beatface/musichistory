@@ -53,28 +53,26 @@ define(["jquery", "populate-songs", "loadSongs", "filter-songs"],
 		//------------------------------------------------------------//
 		//----Handlers, functions for filter and clear buttons----//
 
-
-
 		$(filterButton).click(function(event){
 			// console.log("artist selected", artistSelect.val());
 			//if nothing is selected
 			if (artistSelect.val() === "---select artist---" && albumSelect.val() === "---select album---") {
 				//do nothing
-				console.log("you need to select something!");
+				// console.log("you need to select something!");
 			//if an artist is selected	
 			} else if (artistSelect.val() !== "---select artist---"  && albumSelect.val() === "---select album---") {
 				// filter by artist
-				console.log("you selected an artist");
+				// console.log("you selected an artist");
 				populatesongs.loadSongData(filtersongs.filterByArtist);
 			//if an album is selected
 			} else if (artistSelect.val() === "---select artist---"  && albumSelect.val() !== "---select album---") {
 				//filter by album
-				console.log("you selected an album");
+				// console.log("you selected an album");
 				populatesongs.loadSongData(filtersongs.filterByAlbum);
 			//else if both selected
 			} else {
 				//filter by both
-				console.log("you selected both");
+				// console.log("you selected both");
 				populatesongs.loadSongData(filtersongs.filterByBoth);
 			}
 		});
@@ -98,4 +96,7 @@ define(["jquery", "populate-songs", "loadSongs", "filter-songs"],
 			listSongDiv.show();
 			addSongDiv.hide();
 		});
+
+
 });
+
