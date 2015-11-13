@@ -4,9 +4,7 @@ define(["jquery", "populate-songs", "lodash", "make-array"], function ($, popula
 		return {
 			filterByArtist: function(songData) {
 				var artistSelect = $("#artist-select").val();
-				var dataArray = makearraymodule.makeArray(songData);
-				// console.log("dataArray----", dataArray);
-				var matchingArtists = _.chain(dataArray)
+				var matchingArtists = _.chain(songData)
 				                      .filter((song) => song.artist === artistSelect)
 				                      .value();
 				// console.log("matchingArtists", matchingArtists);
@@ -17,9 +15,7 @@ define(["jquery", "populate-songs", "lodash", "make-array"], function ($, popula
             },
             filterByAlbum: function(songData) {
 				var albumSelect = $("#album-select").val();
-				var dataArray = makearraymodule.makeArray(songData);
-				// console.log("dataArray----", dataArray);
-				var matchingAlbums = _.chain(dataArray)
+				var matchingAlbums = _.chain(songData)
 				                      .filter((song) => song.album === albumSelect)
 				                      .value();
 				// console.log("matchingArtists", matchingArtists);
@@ -31,9 +27,7 @@ define(["jquery", "populate-songs", "lodash", "make-array"], function ($, popula
             filterByBoth: function(songData) {
             	var artistSelect = $("#artist-select").val();
 				var albumSelect = $("#album-select").val();
-				var dataArray = makearraymodule.makeArray(songData);
-				// console.log("dataArray----", dataArray);
-				var matchingSongs = _.chain(dataArray)
+				var matchingSongs = _.chain(songData)
 				                      .filter((song) => song.album === albumSelect && song.artist === artistSelect)
 				                      .value();
 				// console.log("matchingArtists", matchingArtists);

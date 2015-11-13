@@ -5,20 +5,18 @@ define(["jquery", "getUnique", "make-array"], function ($, getUnique, makearraym
 			insertSongstoDOM: function(songData) {
 				//hbs template load with requirejs for SONG-CONTAINER
 				console.log("song data", songData);
-				var dataArray = makearraymodule.makeArray(songData);
 				require(["hbs!../templates/songs"], function(songTemplate) {
-					$("#song-container").append(songTemplate(dataArray));
+					$("#song-container").append(songTemplate(songData));
 				});
-				
-				// console.log("dataArray", dataArray);
-				var uniqueArtists = getUnique.getUniqueArtists(dataArray);
-				// console.log("uniqueArtists", uniqueArtists);
+
+				var uniqueArtists = getUnique.getUniqueArtists(songData);
+				console.log("uniqueArtists", uniqueArtists);
 				//adding artists to select boxes
 				require(["hbs!../templates/artistselect"], function(songTemplate) {
 					$("#artist-select").append(songTemplate(uniqueArtists));
 				});
 				
-				var uniqueAlbums = getUnique.getUniqueAlbums(dataArray);
+				var uniqueAlbums = getUnique.getUniqueAlbums(songData);
 				//adding albums to select boxes
 				require(["hbs!../templates/albumselect"], function(songTemplate) {
 					$("#album-select").append(songTemplate(uniqueAlbums));

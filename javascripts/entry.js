@@ -5,16 +5,20 @@ requirejs.config({
 		"hbs" : "../lib/bower_components/require-handlebars-plugin/hbs",
 		"hbs/handlebars" : "../lib/bower_components/require-handlebars-plugin/hbs/handlebars",
 		"bootstrap" : "../lib/bower_components/bootstrap/dist/js/bootstrap.min",
-		"lodash" : "../lib/bower_components/lodash/lodash.min"
+		"lodash" : "../lib/bower_components/lodash/lodash.min",
+		"firebase" : "../lib/bower_components/firebase/firebase"
 	},
 	shim: {
-		"bootstrap": ["jquery"]
+		"bootstrap": ["jquery"],
+		"firebase" : {
+			exports: "Firebase"
+		}
 	}
 });
 
 require(
-	["bootstrap", "hbs", "app-script", "submit-input-songs"],
-	function(bootstrap, Handlebars, appscript, submitinputsongs) {
+	["bootstrap", "hbs", "populate-songs", "app-script", "submit-input-songs"],
+	function(bootstrap, Handlebars, populatesongs, appscript, submitinputsongs) {
 		// console.log("entry yes");
 	}
 );

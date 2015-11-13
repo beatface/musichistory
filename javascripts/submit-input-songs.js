@@ -20,7 +20,6 @@ define(["jquery", "populate-songs", "loadsongs"], function($, populatesongs, loa
 			method: "POST",
 			data: JSON.stringify(newSongObject)
 		}).done(function() {
-			populatesongs.loadSongData(loadsongs.insertSongstoDOM);
 			//resetting fields to be empty
 			newSong.val("");
 			newArtist.val("");

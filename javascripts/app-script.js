@@ -1,9 +1,15 @@
-define(["jquery", "populate-songs", "loadSongs", "filter-songs"], 
-	function($, populatesongs, loadsongs, filtersongs) {
+define(function(require) {
+		var $ = require("jquery");
+		var firebase = "firebase";
+		var populatesongs = require("populate-songs");
+		var loadsongs = require("loadSongs");
+		var filtersongs = require("filter-songs");
+		var makearraymodule = require("make-array");
+		var getUnique = require("getUnique");
+
 
 		console.log("app script start");
 		//buttons and divs for changing view
-		var viewButton = $("#view");
 		var listNavButton = $("#list");
 		var addNavButton = $("#add");
 		var addSongDiv = $("#add-songs");
@@ -34,32 +40,25 @@ define(["jquery", "populate-songs", "loadSongs", "filter-songs"],
 	    	$("#list").toggleClass("active");
 	    });
 
-		// AJAX to call song data from JSON file
-		populatesongs.loadSongData(loadsongs.insertSongstoDOM);
-		//-------- Load more songs ----------//
 
-		
 		// Delete single song item on delete button click
-		$("body").click(function(event) {
-			console.log("you clicked!");
-			var thisElement = $(event.target);
-			var thisParent = thisElement.parent();
-			console.log("thisElement", thisParent.parent().children().children("h2").html());
+		$(document).on("click", ".delete-button", function(event) {
+			console.log("you clicked this -- ", this);
+			var key = $(this).parent().attr("id");
+			console.log("the key name is ", key);
 			$.ajax({
-		      	url: "https://musichistoryemma.firebaseio.com/" +  + ".json",
+		      	url: "https://musichistoryemma.firebaseio.com/songs/" + key + "/.json",
 		      	method: "DELETE"
-		      	}).done(function(){ console.log("Delete was successful"); });
-			if (thisParent.hasClass("delete-song")) {
-				console.log("you clicked delete");
-				$(thisParent).parent().remove();
-			}
+		      	}).done(function(a,b,c,d){ 
+		      		console.log("Delete was successful", arguments); 
+		      	});
 		});
 		
 		//------------------------------------------------------------//
 		//----Handlers, functions for filter and clear buttons----//
 
 		$(filterButton).click(function(event){
-			// console.log("artist selected", artistSelect.val());
+			var songDataObj = populatesongs.getLoadedData();
 			//if nothing is selected
 			if (artistSelect.val() === "---select artist---" && albumSelect.val() === "---select album---") {
 				//do nothing
@@ -68,26 +67,24 @@ define(["jquery", "populate-songs", "loadSongs", "filter-songs"],
 			} else if (artistSelect.val() !== "---select artist---"  && albumSelect.val() === "---select album---") {
 				// filter by artist
 				// console.log("you selected an artist");
-				populatesongs.loadSongData(filtersongs.filterByArtist);
+				filtersongs.filterByArtist(songDataObj);
 			//if an album is selected
 			} else if (artistSelect.val() === "---select artist---"  && albumSelect.val() !== "---select album---") {
 				//filter by album
 				// console.log("you selected an album");
-				populatesongs.loadSongData(filtersongs.filterByAlbum);
+				filtersongs.filterByAlbum(songDataObj);
 			//else if both selected
 			} else {
 				//filter by both
 				// console.log("you selected both");
-				populatesongs.loadSongData(filtersongs.filterByBoth);
+				filtersongs.filterByBoth(songDataObj);
 			}
 		});
 
 		$(clearButton).click(function(event){
 			$("#song-container").html("");
-			$(artistSelect).html("<option>---select artist---</option>");
-			$(albumSelect).html("<option>---select album---</option>");
-			populatesongs.loadSongData(loadsongs.insertSongstoDOM);
-
+			loadsongs.insertSongstoDOM(populatesongs.getLoadedData);
+			
 		});
 
 		//------------------------------------------------------------//

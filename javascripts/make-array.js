@@ -2,8 +2,16 @@ define(["jquery"], function($) {
 	
 	return {
 		makeArray: function(songData) {
-			var dataArray = $.map(songData.songs, function(el) { return el; });
-			return dataArray;
+			var newArray = [];
+
+			for (var key in songData.songs) {
+				var augmentedSong = songData.songs[key];
+				augmentedSong.key = key;
+				newArray[newArray.length] = augmentedSong;
+			}
+
+			return newArray;
+
 		}
 	};
 });

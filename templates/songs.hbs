@@ -1,11 +1,11 @@
-{{#each []}}
+{{#each this}}
 <div class='row dotted-bottom relative-position'>
 	<div class='col-md-10'>
 		<h2>{{title}}</h2>
 		<p>{{artist}} - {{album}}</p>
 	</div>
-	<div class='col-md-2 delete-song'>
-		<button class='green-button thin-button-padding quicksand-font vertical-align'>Delete</button>
+	<div id="{{key}}" class='col-md-2 delete-song'>
+		<button class='green-button delete-button thin-button-padding quicksand-font vertical-align'>Delete</button>
 	</div>
 </div>
 {{/each}}

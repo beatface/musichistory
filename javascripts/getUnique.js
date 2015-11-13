@@ -1,17 +1,16 @@
-define(["lodash"], function(_) {
+define(["lodash", "make-array"], function(_, makearraymodule) {
 
 	return  {
-		getUniqueArtists: function(songsArray) {
-			console.log("songsArray--", songsArray);
-			var uniqueArtists = _.chain(songsArray)
+		getUniqueArtists: function(songData) {
+			var uniqueArtists = _.chain(songData)
 								 .uniq("artist")
 								 .pluck("artist")
 								 .value();
 			console.log("uniqueArtists", uniqueArtists);
 			return uniqueArtists;
 		},
-		getUniqueAlbums: function(songsArray) {
-			var uniqueAlbums = _.chain(songsArray)
+		getUniqueAlbums: function(songData) {
+			var uniqueAlbums = _.chain(songData)
 								.uniq("album")
 								.pluck("album")
 								.value();
@@ -19,3 +18,6 @@ define(["lodash"], function(_) {
 		}
 	};
 });
+
+
+
