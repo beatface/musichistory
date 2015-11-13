@@ -20,6 +20,7 @@
     "requirejs": "~2.1.20",
     "bootstrap": "~3.3.5",
     "require-handlebars-plugin": "~1.0.0",
-    "lodash": "~3.10.1"
+    "lodash": "~3.10.1",
+    "firebase": "~2.3.1"
   }
 }
