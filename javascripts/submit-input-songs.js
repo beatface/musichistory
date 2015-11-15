@@ -1,4 +1,5 @@
-define(["jquery", "populate-songs", "loadsongs"], function($, populatesongs, loadsongs) {
+define(["jquery", "q", "populate-songs", "loadsongs", "submit-new-songs-XHR"], 
+function($, Q, populatesongs, loadsongs, submitXHR) {
 	// console.log("submit input songs is working!");
 	//inputs, etc for adding new song data
 	var submitMusicButton = $("#add-music");
@@ -15,16 +16,16 @@ define(["jquery", "populate-songs", "loadsongs"], function($, populatesongs, loa
 			"album" : newAlbum.val()
 		};
 
-		$.ajax({
-			url: "https://musichistoryemma.firebaseio.com/songs.json",
-			method: "POST",
-			data: JSON.stringify(newSongObject)
-		}).done(function() {
-			//resetting fields to be empty
-			newSong.val("");
-			newArtist.val("");
-			newAlbum.val("");
-		});
+		submitXHR.postData(newSongObject)
+			.then(function() {
+				//resetting fields to be empty
+				newSong.val("");
+				newArtist.val("");
+				newAlbum.val("");
+			})
+			.fail(function(error) {
+				console.log("Oh no, an error!", error);
+			});
 
 	});
 });

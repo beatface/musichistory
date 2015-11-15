@@ -3,11 +3,12 @@ define(function(require) {
 	var firebase = require("firebase");
 	var makearraymodule = require("make-array");
 	var getUnique = require("getUnique");
+	var loadsongs = require("loadsongs");
 
 
 	var songArray = [];
 
-		// Create a reference to your Firebase database
+	// Create a reference to your Firebase database
 	var myFirebaseRef = new Firebase("https://musichistoryemma.firebaseio.com/songs");
 
 	// Listen for when anything changes on the "songs" key
@@ -18,24 +19,7 @@ define(function(require) {
 		console.log("allSongsObject------", allSongsObject);
 		songArray = makearraymodule.makeArray({ "songs" : allSongsObject });
 		// console.log("populate songArray", songArray);
-
-		// Bind the allSongsObject to the song list Handlebar template
-		require(["hbs!../templates/songs"], function(songTemplate) {
-			$("#song-container").html(songTemplate(songArray));
-		});
-
-		// Bind the unique artists to the artists template
-		var uniqueArtists = getUnique.getUniqueArtists(songArray);
-		console.log("uniqueArtists", uniqueArtists);
-		require(["hbs!../templates/artistselect"], function(songTemplate) {
-			$("#artist-select").html(songTemplate(uniqueArtists));
-		});
-
-		// Bind the unique albums to the albums template
-		var uniqueAlbums = getUnique.getUniqueAlbums(songArray);
-		require(["hbs!../templates/albumselect"], function(songTemplate) {
-			$("#album-select").html(songTemplate(uniqueAlbums));
-		});
+		loadsongs.insertSongstoDOM(songArray);
 	});
 
   	return {

@@ -2,10 +2,11 @@ define(function(require) {
 		var $ = require("jquery");
 		var firebase = "firebase";
 		var populatesongs = require("populate-songs");
-		var loadsongs = require("loadSongs");
+		var loadsongs = require("loadsongs");
 		var filtersongs = require("filter-songs");
 		var makearraymodule = require("make-array");
 		var getUnique = require("getUnique");
+		var deletesongXHR = require("delete-song-XHR");
 
 
 		console.log("app script start");
@@ -45,13 +46,11 @@ define(function(require) {
 		$(document).on("click", ".delete-button", function(event) {
 			console.log("you clicked this -- ", this);
 			var key = $(this).parent().attr("id");
+			var deletestring = "https://musichistoryemma.firebaseio.com/songs/" + key + "/.json";
 			console.log("the key name is ", key);
-			$.ajax({
-		      	url: "https://musichistoryemma.firebaseio.com/songs/" + key + "/.json",
-		      	method: "DELETE"
-		      	}).done(function(a,b,c,d){ 
-		      		console.log("Delete was successful", arguments); 
-		      	});
+
+			deletesongXHR.deleteData(deletestring);
+			
 		});
 		
 		//------------------------------------------------------------//
@@ -62,21 +61,21 @@ define(function(require) {
 			//if nothing is selected
 			if (artistSelect.val() === "---select artist---" && albumSelect.val() === "---select album---") {
 				//do nothing
-				// console.log("you need to select something!");
+				console.log("you need to select something!");
 			//if an artist is selected	
 			} else if (artistSelect.val() !== "---select artist---"  && albumSelect.val() === "---select album---") {
 				// filter by artist
-				// console.log("you selected an artist");
+				console.log("you selected an artist");
 				filtersongs.filterByArtist(songDataObj);
 			//if an album is selected
 			} else if (artistSelect.val() === "---select artist---"  && albumSelect.val() !== "---select album---") {
 				//filter by album
-				// console.log("you selected an album");
+				console.log("you selected an album");
 				filtersongs.filterByAlbum(songDataObj);
 			//else if both selected
 			} else {
 				//filter by both
-				// console.log("you selected both");
+				console.log("you selected both");
 				filtersongs.filterByBoth(songDataObj);
 			}
 		});

@@ -20,6 +20,6 @@ requirejs.config({
 require(
 	["bootstrap", "hbs", "populate-songs", "app-script", "submit-input-songs"],
 	function(bootstrap, Handlebars, populatesongs, appscript, submitinputsongs) {
-		// console.log("entry yes");
+		// console.log("entry working!s");
 	}
 );
