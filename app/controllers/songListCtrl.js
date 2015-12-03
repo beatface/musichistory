@@ -1,10 +1,10 @@
 // adding songs to song-list view main div
 app.controller("loadSongsToMainDiv", 
-	["$http", "$scope", "song_data", function($http, $scope, getSongData) {
+	["$scope", "song_data", function($scope, getSongData) {
 
 	getSongData.loadSongs()
 	.then(function () {
-          $scope.songs = getSongData.getSongs1();
+          $scope.$parent.songs = getSongData.getSongs1();
           console.log($scope.songs);
         },
         function (error) {
@@ -12,8 +12,8 @@ app.controller("loadSongsToMainDiv",
         });
 
 	$scope.showMore = function() {
-			$scope.songs = getSongData.getAllSongs();
-		});
-	};
+			$scope.$parent.songs = getSongData.getAllSongs();
+			// console.log("$scope.songs",$scope.songs);
+		};	
 
 }]);

@@ -3,85 +3,76 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Emma's Music History</title>
+    <title>Emma's Music History with Angular</title>
     <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700|Source+Sans+Pro' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body class="quicksand-font">
+  <body class="quicksand-font" ng-app="loadSongs">
     <img src="beats4ulogo2.png" alt="beats4u logo">
     <header id="header" class="bottom-border">
       <nav class="navigation border-bottom quicksand-font">
         <ul id="nav">
-          <li id="list"><a href="#">List Music</a></li>
+          <li id="list"><a href="/#/song-list">List Music</a></li>
           <li> | </li>
-          <li id="add"><a href="#">Add Music</a></li>
+          <li id="add"><a href="/#/add-song">Add Music</a></li>
         </ul>
       </nav>
     </header>
+
+    <div ng-controller="OdinCtrl">
     
-      <div id="sidebar" class="border source-font">
-        <form action="#" method="#" id="filter-form">
-          <label for="length">Song length:</label>
-          <input type="range" name="length" min="1" max="6" step=".5">
-          <label for="artist-select">Artist:</label>
-          <select id="artist-select" name="artist-select">
-            <!-- <option>Robyn</option>
-            <option>Beyonce</option>
-            <option>Jason Isbell</option>
-            <option>Hozier</option> -->
-          </select>
-          <label for="album-select">Album:</label>
-          <select id="album-select" name="album-select">
-            <!-- <option>Body Talk</option>
-            <option>4</option>
-            <option>Somthing More Than Free</option>
-            <option>Hozier</option> -->
-          </select>
-          <label for="genre-options">Genre:</label>
-          <p>
-            <input type="checkbox" name="genre-options" value="rock"> Rock
-            <input type="checkbox" name="genre-options" value="pop"> Pop
-          </p>
-          <p>  
-            <input type="checkbox" name="genre-options" value="blues"> Blues
-            <input type="checkbox" name="genre-options" value="jlassical"> Classical
-          </p>
-          <p>
-            <input type="checkbox" name="genre-options" value="jazz"> Jazz
-            <input type="checkbox" name="genre-options" value="hip-hop"> Hip-hop
-          </p>
-          <div id="container">
-            <input type="submit" id="filterButton" value="Filter" class="quicksand-font fat-button-padding green-button">
-          </div>  
-        </form>
-      </div>
-    <div id="main-container">
-      <div id="song-list" class="quicksand-font">
-        <container id="song-container">
+        <div id="sidebar" class="border source-font" ng-controller="loadSongsToSelect">
+          <form action="#" method="#" id="filter-form">
+            <label for="length">Song length:</label>
+            <input type="range" name="length" min="1" max="6" step=".5">
+            
+            <label for="artist-select">Artist:</label>
+            <!-- angular for artist from json -->
+            <select id="artist-select" name="artist-select"
+            ng-model="x" ng-options="artist as song.artist for song in songs">
+            </select>
+
+            <label for="album-select">Album:</label>
+            <!-- angular for album from json -->
+            <select id="album-select" name="album-select"
+            ng-model="x" ng-options="album as song.album for song in songs">
+            </select>
+
+            <label for="genre-options">Genre:</label>
+            <p>
+              <input type="checkbox" name="genre-options" value="rock"> Rock
+              <input type="checkbox" name="genre-options" value="pop"> Pop
+            </p>
+            <p>  
+              <input type="checkbox" name="genre-options" value="blues"> Blues
+              <input type="checkbox" name="genre-options" value="classical"> Classical
+            </p>
+            <p>
+              <input type="checkbox" name="genre-options" value="jazz"> Jazz
+              <input type="checkbox" name="genre-options" value="hip-hop"> Hip-hop
+            </p>
+            <div id="container">
+              <input type="submit" id="filterButton" value="Filter" class="quicksand-font fat-button-padding green-button">
+            </div>  
+          </form>
+        </div>
+
+
+        <!-- dynamically loaded content/angular controller section -->
+        <div id="main-container">
           
-        </container>
+          <div ng-view></div>
+
+        </div>
       </div>
-      <button id="more-songs" class="green-button fat-button-padding quicksand-font">Show More</button>
-      <div id="add-songs" class="hidden quicksand-font">
-        <container id="song-add-container">
-          <h2 class="add-music-header">Add Music</h2>
-          <p>
-            <label for="Song">Song:</label>
-            <input type="text" name="Song" id="inputSong">
-          </p>
-          <p>
-            <label for="artist">Artist:</label>
-            <input type="text" name="artist" id="inputArtist">
-          </p>
-          <p>
-            <label for="Album">Album:</label>
-            <input type="text" name="Album" id="inputAlbum">
-          </p>
-          <button id="add-music" class="quicksand-font fat-button-padding green-button">Add</button>
-        </container>
-      </div>
-    </div>
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="script.js"></script>
+    <script src="lib/bower_components/angular/angular.min.js"></script>
+    <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="app/app.js"></script>
+    <script src="app/factories/getSongData.js"></script>
+    <script src="app/controllers/odinSongController.js"></script>
+    <script src="app/controllers/songSelectCtrl.js"></script>
+    <script src="app/controllers/songListCtrl.js"></script>
+    <script src="app/controllers/addNewSong.js"></script>
   </body>
 </html>
