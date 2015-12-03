@@ -2,13 +2,13 @@
   <container id="song-container">
 
     <div class='dotted-bottom song-item-div' ng-repeat="song in songs">
-      <h2>{{ songs.title }}</h2>
+      <h2>{{ song.title }}</h2>
       <p class='delete-song'>
         <button class='green-button thin-button-padding quicksand-font'>Delete</button>
       </p>
-      <p> {{songs.artist}} - {{songs.album}} </p>
+      <p> {{song.artist}} - {{song.album}} </p>
     </div>
     
   </container>
 </div>
-<button id="more-songs" class="green-button fat-button-padding quicksand-font">Show More</button>
+<button id="more-songs" class="green-button fat-button-padding quicksand-font" ng-click="showMore()">Show More</button>

@@ -5,12 +5,12 @@ app.config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider
 		.when('/song-list', { 
-			templateUrl: '/#/partials/song-list.html',
+			templateUrl: 'app/partials/song-list.html',
 			controller: 'loadSongsToMainDiv'
 		})
-		.when('/song-add', {
-			templateUrl: '/#/partials/add-song.html',
-			// controller: ''
+		.when('/add-song', {
+			templateUrl: 'app/partials/add-song.html',
+			controller: 'addNewSong'
 		})
 		.otherwise('/song-list');
 }]);

@@ -1,18 +1,18 @@
-<div id="add-songs" class="hidden quicksand-font">
+<div id="add-songs" class="quicksand-font">
   <container id="song-add-container">
     <h2 class="add-music-header">Add Music</h2>
     <p>
       <label for="Song">Song:</label>
-      <input type="text" name="Song" id="inputSong">
+      <input type="text" name="Song" id="inputSong" ng-model="newSong.title">
     </p>
     <p>
       <label for="artist">Artist:</label>
-      <input type="text" name="artist" id="inputArtist">
+      <input type="text" name="artist" id="inputArtist" ng-model="newSong.artist">
     </p>
     <p>
       <label for="Album">Album:</label>
-      <input type="text" name="Album" id="inputAlbum">
+      <input type="text" name="Album" id="inputAlbum" ng-model="newSong.album">
     </p>
-    <button id="add-music" class="quicksand-font fat-button-padding green-button">Add</button>
+    <button id="add-music" class="quicksand-font fat-button-padding green-button" ng-click="addSong()">Add</button>
   </container>
 </div>
