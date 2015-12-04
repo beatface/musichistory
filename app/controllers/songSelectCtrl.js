@@ -1,16 +1,9 @@
 // adding songs to select boxes
 app.controller("loadSongsToSelect", 
-	["$http", "$scope", "song_data", function($http, $scope, getSongData) {
+	["$scope", "$firebaseArray", function($scope, $firebaseArray) {
 
-	
+    var ref = new Firebase("https://musichistoryemma.firebaseio.com/songs");
 
-	getSongData.loadSongs().then(
-        function () {
-          $scope.$parent.songs = getSongData.getSongs1();
-          // console.log($scope.songs)
-        },
-        function (error) {
-          console.log(error);
-        });
+    $scope.$parent.songs = $firebaseArray(ref);
 
 }]);

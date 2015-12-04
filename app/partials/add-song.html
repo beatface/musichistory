@@ -13,6 +13,17 @@
       <label for="Album">Album:</label>
       <input type="text" name="Album" id="inputAlbum" ng-model="newSong.album">
     </p>
+    <p>
+      <label for="Genre">Genre:</label>
+      <select id="add-genre-select" ng-model="newSong.genre">
+        <option>Rock</option>
+        <option>Pop</option>
+        <option>Blues</option>
+        <option>Classical</option>
+        <option>Jazz</option>
+        <option>Hip-Hop</option>
+      </select>
+    </p>
     <button id="add-music" class="quicksand-font fat-button-padding green-button" ng-click="addSong()">Add</button>
   </container>
 </div>

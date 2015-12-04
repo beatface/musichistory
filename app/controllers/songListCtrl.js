@@ -1,19 +1,18 @@
 // adding songs to song-list view main div
 app.controller("loadSongsToMainDiv", 
-	["$scope", "song_data", function($scope, getSongData) {
+	["$scope", "$firebaseArray", function($scope, $firebaseArray) {
 
-	getSongData.loadSongs()
-	.then(function () {
-          $scope.$parent.songs = getSongData.getSongs1();
-          console.log($scope.songs);
-        },
-        function (error) {
-          console.log(error);
-        });
+	var ref = new Firebase("https://musichistoryemma.firebaseio.com/songs");
 
-	$scope.showMore = function() {
-			$scope.$parent.songs = getSongData.getAllSongs();
-			// console.log("$scope.songs",$scope.songs);
-		};	
+	$scope.$parent.songs = $firebaseArray(ref);
+
+	$scope.deleteSong = function(song) {
+		$scope.$parent.songs.$remove(song);
+	};
+
+	// $scope.showMore = function() {
+	// 		$scope.$parent.songs = getSongData.getAllSongs();
+	// 		// console.log("$scope.songs",$scope.songs);
+	// 	};	
 
 }]);

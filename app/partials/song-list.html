@@ -4,7 +4,7 @@
     <div class='dotted-bottom song-item-div' ng-repeat="song in songs">
       <h2>{{ song.title }}</h2>
       <p class='delete-song'>
-        <button class='green-button thin-button-padding quicksand-font'>Delete</button>
+        <button class='green-button thin-button-padding quicksand-font' ng-click="deleteSong(song)">Delete</button>
       </p>
       <p> {{song.artist}} - {{song.album}} </p>
     </div>

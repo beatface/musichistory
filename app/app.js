@@ -1,4 +1,4 @@
-var app = angular.module("loadSongs", ["ngRoute"]);
+var app = angular.module("loadSongs", ["firebase", "ngRoute"]);
 
 
 app.config(['$routeProvider', 
@@ -9,6 +9,10 @@ app.config(['$routeProvider',
 			controller: 'loadSongsToMainDiv'
 		})
 		.when('/add-song', {
+			templateUrl: 'app/partials/add-song.html',
+			controller: 'addNewSong'
+		})
+		.when('/song-detail/:songId', {
 			templateUrl: 'app/partials/add-song.html',
 			controller: 'addNewSong'
 		})
