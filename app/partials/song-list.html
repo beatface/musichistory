@@ -1,0 +1,11 @@
+<div id="song-container" class="quicksand-font">
+	<div class='row dotted-bottom relative-position' ng-repeat="song in songs">
+		<div class='col-md-10'>
+			<h2>{{song.title}}</h2>
+			<p>{{song.artist}} - {{song.album}}</p>
+		</div>
+		<div class='col-md-2 delete-song'>
+			<button class='green-button thin-button-padding quicksand-font vertical-align' ng-click="deleteSong(song)">Delete</button>
+		</div>
+	</div>
+</div>

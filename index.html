@@ -10,7 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700|Source+Sans+Pro' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./styles/main.css">
   </head>
-  <body class="quicksand-font">
+  <body class="quicksand-font" ng-app="MusicHistoryApp">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -27,8 +27,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li id="list" class="active"><a href="#">List Music</a></li>
-            <li id="add"><a href="#">Add Music</a></li>
+            <li id="list" class="active"><a href="/#/songs-list">List Music</a></li>
+            <li id="add"><a href="/#/add-song">Add Music</a></li>
             <!-- toggle button -->
             <li><a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></li>
           </ul>
@@ -50,94 +50,76 @@
     </nav>
     <!-- main container start -->
 
-
-    <div id="wrapper">
-      <div id="sidebar-wrapper">
-      <!-- sidebar content -->
-        <div id="sidebar-container" class="container-fluid">
-          <form action="#" method="#" id="filter-form">
-            <div class="row">
-              <div class="col-md-10">
-                <label for="artist-select">Artist:</label>
-                <select id="artist-select" class="form-control" name="artist-select">
-                  <option>---select artist---</option>
-                <!-- dynamically loaded options -->
-                </select>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-10">
-                <label for="album-select">Album:</label>
-                <select id="album-select" class="form-control" name="album-select">
-                  <option>---select album---</option>
-                <!-- dynamically loaded options -->
-                </select>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-10">
-                <div id="container">
-                  <input type="submit" id="filterButton" value="Filter" class="quicksand-font fat-button green-button">
-                  <input type="submit" id="clearButton" value="Clear" class="quicksand-font fat-button red-button">
+    <div ng-controller="parentSongController">
+      <div id="wrapper">
+        <div id="sidebar-wrapper">
+        <!-- sidebar content -->
+          <div id="sidebar-container" class="container-fluid" ng-controller="songSelectCtrl">
+            <form action="#" method="#" id="filter-form">
+              <div class="row">
+                <div class="col-md-10">
+                  <label for="artist-select">Artist:</label>
+                  <select id="artist-select" class="form-control" name="artist-select" ng-model="x" ng-options="artist as song.artist for song in songs">
+                    <!-- dynamically loaded options -->
+                  </select>
                 </div>
               </div>
-            </div>  
-          </form>
-        </div> <!-- /.container-fluid -->
-      </div> <!-- /.sidebar-wrapper -->
+              <div class="row">
+                <div class="col-md-10">
+                  <label for="album-select">Album:</label>
+                  <select id="album-select" class="form-control" name="album-select" ng-model="x" ng-options="album as song.album for song in songs">
+                    <!-- dynamically loaded options -->
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-10">
+                  <div id="container">
+                    <input type="submit" id="filterButton" value="Filter" class="quicksand-font fat-button green-button">
+                    <input type="submit" id="clearButton" value="Clear" class="quicksand-font fat-button red-button">
+                  </div>
+                </div>
+              </div>  
+            </form>
+          </div> <!-- /.container-fluid -->
+        </div> <!-- /.sidebar-wrapper -->
 
-      <!-- main content -->
-      <div id="page-content-wrapper">
-        <div class="container-fluid">
-          <div class="row">
-            <!-- content of page -->
-            <!-- larger column -->
-            <div class="col-md-10">
-              <div id="main-container">
-                <div id="song-container" class="quicksand-font">
+        <!-- main content -->
+        <div id="page-content-wrapper">
+          <div class="container-fluid">
+            <div class="row">
+              <!-- content of page -->
+              <!-- larger column -->
+              <div class="col-md-10">
+                <div id="main-container">
                   
-                </div>
-               <!--  <button id="more-songs" class="green-button fat-button-padding quicksand-font">Show More</button> -->
-                <div id="add-songs" class="quicksand-font">
-                  <container id="song-add-container">
-                    <h2 class="add-music-header">Add Music</h2>
-                    <div class="container">
-                      <div class="row">
-                        <div class="col-md-1">
-                          <label for="Song">Song:</label>
-                        </div>
-                        <div class="col-md-11">
-                          <input type="text" name="Song" id="inputSong">
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-1">
-                          <label for="artist">Artist:</label>
-                        </div>
-                        <div class="col-md-11">
-                          <input type="text" name="artist" id="inputArtist">
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-1">
-                          <label for="Album">Album:</label>
-                        </div>
-                        <div class="col-md-11">
-                          <input type="text" name="Album" id="inputAlbum">
-                        </div>
-                      </div>
-                    </div>
-                    <button id="add-music" class="quicksand-font fat-button green-button">Add</button>
-                  </container>
-                </div> <!-- /.#add-songs -->
-              </div> <!-- /.#main-container -->
+                    
+                
+                  <div ng-view></div>
+
+
+
+
+
+                </div> <!-- /.#main-container -->
+              </div>
             </div>
           </div>
-        </div>
-      </div> <!-- /.page-content-wrapper -->
-
-    </div> <!-- /.wrapper -->
-    <script data-main="javascripts/entry" 
-         src="lib/bower_components/requirejs/require.js"></script>
+        </div> <!-- /.page-content-wrapper -->
+      </div> <!-- /.wrapper -->
+    </div>  <!-- /div ng-controller parentsongcontroller -->
+    <!-- Libraries -->
+    <script src="lib/bower_components/angular/angular.min.js"></script>
+    <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="lib/bower_components/firebase/firebase.js"></script>
+    <script src="lib/bower_components/angularfire/dist/angularfire.js"></script>
+    <!-- Local files -->
+    <script src="app/app.js"></script>
+    <script src="app/controllers/parentSongController.js"></script>
+    <script src="app/controllers/songListCtrl.js"></script>
+    <script src="app/controllers/songSelectCtrl.js"></script>
+    <script src="app/controllers/addNewSongCtrl.js"></script>
   </body>
 </html>
+
+
